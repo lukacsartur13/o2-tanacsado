@@ -1,0 +1,89 @@
+.card {
+  background: #fff;
+  color: var(--ink);
+  border-radius: var(--radius);
+  padding: clamp(22px, 3.2vw, 40px);
+  box-shadow: 0 30px 80px -30px rgba(8, 20, 60, 0.35);
+}
+
+.grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.actions {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.actions button {
+  width: 100%;
+}
+
+.note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.live:focus {
+  outline: none;
+}
+
+.live:not(:empty) {
+  margin-top: 18px;
+}
+
+.success {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+
+.success h3 {
+  margin: 8px 0 0;
+}
+
+.success p {
+  margin: 0;
+  color: var(--ink-2);
+  max-width: 50ch;
+}
+
+.successMark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--ok-tint);
+  color: var(--ok);
+  display: grid;
+  place-items: center;
+}
+
+.successMark svg {
+  width: 28px;
+  height: 28px;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .actions {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .actions button {
+    width: auto;
+  }
+}

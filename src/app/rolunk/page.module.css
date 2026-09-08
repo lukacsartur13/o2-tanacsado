@@ -1,0 +1,284 @@
+.head {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(48px, 6vw, 88px) clamp(40px, 5vw, 64px);
+  background: radial-gradient(900px 500px at 0% 0%, var(--cobalt-tint) 0%, transparent 60%), var(--paper);
+}
+
+.headGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 36px;
+  grid-template-columns: 1fr;
+  align-items: end;
+}
+
+.headGrid h1 {
+  max-width: 16ch;
+}
+
+.keyFacts {
+  margin: 0;
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line-strong);
+}
+
+.keyFacts div {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.keyFacts dt {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  padding-top: 3px;
+}
+
+.keyFacts dd {
+  margin: 0;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+@media (min-width: 900px) {
+  .headGrid {
+    grid-template-columns: 7fr 5fr;
+    gap: 64px;
+  }
+}
+
+/* story */
+.story {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+.storyText h2 {
+  margin-bottom: 0.6em;
+}
+
+.mission {
+  background: var(--cobalt-tint);
+  border-radius: var(--radius);
+  padding: clamp(24px, 3vw, 36px);
+  position: relative;
+  overflow: hidden;
+}
+
+.mission::after {
+  content: "";
+  position: absolute;
+  right: -60px;
+  bottom: -60px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 1.5px solid var(--cobalt-tint-2);
+}
+
+.missionText {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--cobalt-ink);
+  margin-bottom: 1em;
+  text-wrap: balance;
+}
+
+@media (min-width: 960px) {
+  .story {
+    grid-template-columns: 7fr 5fr;
+    gap: 64px;
+  }
+
+  .mission {
+    position: sticky;
+    top: calc(var(--header-h) + 32px);
+    margin-top: 72px;
+  }
+}
+
+/* approach */
+.approachHead {
+  margin-bottom: clamp(28px, 4vw, 48px);
+}
+
+.approachHead h2 {
+  margin: 0;
+}
+
+.approach {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 1px solid var(--line-strong);
+}
+
+.approach li {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 8px 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.approach li span {
+  grid-row: 1 / span 2;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--cobalt);
+  padding-top: 0.2em;
+}
+
+.approach h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.approach p {
+  margin: 0;
+  color: var(--ink-2);
+  max-width: 52ch;
+  text-wrap: pretty;
+}
+
+@media (min-width: 800px) {
+  .approach {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 48px;
+  }
+}
+
+/* founders */
+.founders {
+  list-style: none;
+  display: grid;
+  gap: 36px;
+  grid-template-columns: 1fr;
+}
+
+.founder {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+
+.founder h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.15em;
+}
+
+.role {
+  color: var(--cobalt);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.facts {
+  list-style: none;
+  display: grid;
+  gap: 6px;
+  color: var(--ink-2);
+}
+
+.facts li {
+  position: relative;
+  padding-left: 20px;
+}
+
+.facts li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cobalt-tint-2);
+}
+
+.portrait {
+  width: min(60vw, 220px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--paper-3);
+}
+
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 720px) {
+  .founders {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .founder {
+    grid-template-columns: 200px 1fr;
+  }
+
+  .portrait {
+    width: 200px;
+  }
+}
+
+/* company */
+.company {
+  overflow: hidden;
+}
+
+.companyGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+
+.address {
+  font-style: normal;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.address a {
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+}
+
+.companyCta {
+  display: grid;
+  gap: 16px;
+  justify-items: start;
+}
+
+.companyCta .lead {
+  margin: 0;
+}
+
+@media (min-width: 900px) {
+  .companyGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+}

@@ -1,0 +1,82 @@
+.section {
+  overflow: hidden;
+  scroll-margin-top: var(--header-h);
+}
+
+.light {
+  background: var(--paper-2);
+}
+
+.grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+.intro h2 {
+  margin-bottom: 0.4em;
+}
+
+.points {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  margin: 26px 0 32px;
+  max-width: 48ch;
+}
+
+.points li {
+  position: relative;
+  padding-left: 28px;
+  line-height: 1.5;
+}
+
+.points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2.5px solid currentColor;
+  opacity: 0.7;
+}
+
+.address {
+  font-style: normal;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.address a {
+  color: inherit;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+}
+
+.light .address {
+  color: var(--ink-2);
+}
+
+.light .points li::before {
+  border-color: var(--cobalt);
+  opacity: 1;
+}
+
+@media (min-width: 1000px) {
+  .grid {
+    grid-template-columns: 5fr 7fr;
+    gap: 64px;
+  }
+
+  .intro {
+    position: sticky;
+    top: calc(var(--header-h) + 32px);
+  }
+}

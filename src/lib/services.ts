@@ -334,7 +334,7 @@ export const SERVICE_PAGES_DATA: ServicePageData[] = [
     label: "Vezetői tréning",
     title: "Vezetői tréning kkv-vezetőknek és középvezetőknek | O2 Tanácsadó",
     description:
-      "Vezetői tréning kkv-k középvezetőinek: delegálás, visszajelzés, teljesítménykezelés. A cég valós helyzetére épül, nem sablonra. Országosan, helyszínen és online.",
+      "Vezetői tréning kkv-k középvezetőinek: delegálás, visszajelzés, teljesítménykezelés. A cég valós helyzetére épül, nem sablonra. Országosan, online is.",
     h1: "Vezetői tréning, amely a cég valós helyzetére épül",
     eyebrow: "Vezetői tréning · országosan",
     lead:
@@ -778,7 +778,7 @@ export const SERVICE_PAGES_DATA: ServicePageData[] = [
     label: "Munkaerő-megtartás",
     title: "Munkaerő-megtartás, fluktuáció csökkentése | O2 Tanácsadó",
     description:
-      "Munkaerő-megtartás kkv-knak: a fluktuáció okainak feltárása, megtartási eszközök, ösztönzési rendszer, munkavállalói elégedettség. Országosan, online és helyszínen.",
+      "Munkaerő-megtartás kkv-knak: a fluktuáció okainak feltárása, megtartási eszközök, ösztönzési rendszer, elégedettség. Országosan, online és helyszínen.",
     h1: "Munkaerő-megtartás: hogyan csökkenthető a fluktuáció egy kkv-nál?",
     eyebrow: "Munkaerő-megtartás · országosan",
     lead:

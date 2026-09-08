@@ -1,13 +1,9 @@
-# Partnerlogók a „Vállalati tapasztalat” blokkhoz
+# Partnerlogók – jelenleg nem használt
 
-A blokk (`src/components/Experience.tsx`) minden szervezetnél megnézi, létezik-e itt a
-`src/lib/site.ts` EXPERIENCE listájában megadott fájl. Ha igen, logót mutat, ha nem, a nevet
-szövegesen.
+A „Vállalati tapasztalat” blokk szöveges felsorolásként jelenik meg, mert a felsorolt
+szervezetektől nincs dokumentált, kifejezett logóhasználati engedély.
 
-Jelenlegi fájlok (160 px magas, körbevágott, átlátszó hátterű PNG-k):
-spar.png, hbo.png, prangl.png, audi.png, isg.png, gablini.png, dr-oetker.png, rbl.png, oeconomus.png
-
-Az eredeti, feldolgozatlan fájlok a projekt gyökerében lévő `logos-source/` mappában vannak
-(nem kerülnek az oldalra). Új logó cseréjekor: tegye ide a fájlt, és a `site.ts`-ben állítsa be a nevét.
-
-A logóhasználati engedélyeket érdemes ebben a mappában dokumentálni (kitől, mikor, milyen feltétellel).
+Ha az engedély rendelkezésre áll (kitől, mikor, milyen feltétellel – ide, e mappába dokumentálva):
+1. másolja a `logos-source/processed/` mappából a PNG-ket ide (`public/logos/`),
+2. a `src/lib/site.ts` EXPERIENCE listájában állítsa `showLogos: true`-ra.
+A blokk csak akkor vált logóra, ha minden felsorolt szervezet fájlja megvan.

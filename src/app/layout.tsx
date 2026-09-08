@@ -8,6 +8,7 @@ import { jsonLd } from "@/lib/seo";
 import {
   ADDRESS,
   CONTACT_EMAIL,
+  GOOGLE_SITE_VERIFICATION,
   IS_PRODUCTION,
   LEGAL_NAME,
   SITE_NAME,
@@ -40,6 +41,7 @@ export const metadata: Metadata = {
   applicationName: SITE_NAME,
   robots: IS_PRODUCTION ? { index: true, follow: true } : { index: false, follow: false },
   formatDetection: { telephone: false },
+  ...(GOOGLE_SITE_VERIFICATION ? { verification: { google: GOOGLE_SITE_VERIFICATION } } : {}),
 };
 
 export const viewport: Viewport = {

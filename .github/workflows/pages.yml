@@ -31,8 +31,11 @@ jobs:
         env:
           STATIC_EXPORT: "1"
           NEXT_PUBLIC_STATIC_EXPORT: "1"
+          # Élesítés saját domainen (o2tanacsado.hu, CNAME beállítva): BASE_PATH legyen üres,
+          # SITE_ENV pedig "production" – ekkor engedi a robots.txt és a meta az indexelést.
           NEXT_PUBLIC_BASE_PATH: /o2-tanacsado
           NEXT_PUBLIC_SITE_ENV: preview
+          NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.GOOGLE_SITE_VERIFICATION }}
       - run: touch out/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:

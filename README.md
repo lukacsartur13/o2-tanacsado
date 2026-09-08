@@ -35,12 +35,16 @@ npm run build
 | `/blog/` és `/blog/<slug>/` | 8 induló cikk (`src/lib/blog.ts`) | információs forgalom, konzultációs lead |
 | `/rolunk/` | Alapítók, szemlélet, tapasztalat-blokk, cégadatok | E-E-A-T |
 | `/kapcsolat/` | Elérhetőség és űrlap | konverzió |
+| `/adatkezelesi-tajekoztato/` | Saját adatkezelési tájékoztató (a helyőrzőket élesítés előtt ki kell tölteni) | jogi megfelelés |
 | `/hr-tanacsadas-budapest/`, `-gyor/`, `-szeged/` | Korábbi térségi landingek (láblécből és a főoldalról elérhetők) | lokális, csak dokumentálható térségre |
 
 A szolgáltatási oldalak tartalma `src/lib/services.ts`-ben van, a sablon
 `src/components/ServicePage.tsx` (Service + FAQPage + BreadcrumbList schema). A tapasztalat-blokk
 (`src/components/Experience.tsx`) a `src/lib/site.ts` `EXPERIENCE` konstansából dolgozik: a
-szervezetek neve csak szövegesen jelenik meg, logó csak dokumentált engedéllyel kerülhet ki.
+szervezetek neve szövegesen jelenik meg. Logó csak dokumentált logóhasználati engedéllyel
+kapcsolható be (`showLogos: true` + fájlok a `public/logos/` mappában; részletek ott a README-ben).
+A helyi oldalak (`src/lib/local.ts`) térségi állításai szándékosan óvatos, nem statisztikai
+megfogalmazásúak; új térségi oldal csak igazolható, egyedi helyi értékkel készülhet.
 
 A letölthető munkaköri leírás mintát (`public/letoltes/munkakori-leiras-minta.txt`) a
 `scripts/write-template.mjs` generálja a `src/lib/job-description.ts` forrásból; a `prebuild`
@@ -61,6 +65,18 @@ helyi tevékenységre (helyszíni működés, esemény, partner, publikálható 
 
 Küldési beállítások (`.env.local`): `RESEND_API_KEY` **vagy** `SMTP_HOST`, `SMTP_PORT`,
 `SMTP_USER`, `SMTP_PASS` (+ `SMTP_SECURE`), valamint `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`.
+
+## Élesítési ellenőrzőlista
+
+- `NEXT_PUBLIC_SITE_ENV=production` az éles domainen (enélkül `noindex` és tiltó `robots.txt`).
+- GitHub Pages saját domainen: a workflow-ban `NEXT_PUBLIC_BASE_PATH` üres, `NEXT_PUBLIC_SITE_ENV`
+  `production`, CNAME beállítva.
+- Search Console: `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` (HTML-meta), vagy DNS-rekord, vagy a
+  Google HTML-fájlja a `public/` mappában. Sitemap: `https://o2tanacsado.hu/sitemap.xml`.
+- Az adatkezelési tájékoztató helyőrzői (cégjegyzékszám, adószám, tárhely- és e-mail-szolgáltató)
+  kitöltve, a szöveg jogi ellenőrzés után.
+- E-mail-küldés beállítva (`RESEND_API_KEY` vagy `SMTP_*`), ha nem statikus tárhelyen fut az oldal.
+- Minden oldalon önmagára mutató canonical, egyedi title és description (ellenőrizve).
 
 ## Indexelés
 

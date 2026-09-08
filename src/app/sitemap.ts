@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { POSTS } from "@/lib/blog";
-import { LOCAL_PAGES, NAV, SERVICE_PAGES, SITE_URL } from "@/lib/site";
+import { LOCAL_PAGES, NAV, PRIVACY_PATH, SERVICE_PAGES, SITE_URL } from "@/lib/site";
 
 // Statikus export (GitHub Pages) esetén is előállítható fájl.
 export const dynamic = "force-static";
@@ -32,5 +32,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: 0.5,
   }));
-  return [...main, ...services, ...posts, ...local];
+  const legal = [
+    {
+      url: new URL(PRIVACY_PATH, SITE_URL).toString(),
+      lastModified: LAST_MODIFIED,
+      changeFrequency: "yearly" as const,
+      priority: 0.2,
+    },
+  ];
+  return [...main, ...services, ...posts, ...local, ...legal];
 }

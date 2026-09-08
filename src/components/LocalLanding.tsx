@@ -57,8 +57,9 @@ export function LocalLanding({ page }: { page: LocalPage }) {
               <h2 id="local-services-title">Miben segítünk {page.city} és {page.county} cégeinek?</h2>
             </div>
             <p className="lead">
-              Mind a négy terület elérhető külön és együtt is. A részleteket a szolgáltatások
-              oldalon írjuk le, itt azt emeljük ki, mi a jellemző a térségben.
+              Mind a négy terület elérhető külön és együtt is, online és igény szerint helyszínen.
+              A részleteket a szolgáltatások oldalon írjuk le, itt azt emeljük ki, mi lehet a
+              térségben különösen releváns.
             </p>
           </div>
           <ol className={styles.services}>
@@ -78,7 +79,7 @@ export function LocalLanding({ page }: { page: LocalPage }) {
                   <p className={styles.serviceNote}>{page.serviceNotes[s.id]}</p>
                   <div className={styles.serviceLinks}>
                     <CtaLink service={s.id} local variant="ghost" size="sm">
-                      Ajánlatot kérek erre
+                      Egyeztetést kérek erre
                     </CtaLink>
                     <Link href={`/szolgaltatasok/#${s.id}`} className="link-arrow">
                       Részletek <ArrowRight />
@@ -98,8 +99,8 @@ export function LocalLanding({ page }: { page: LocalPage }) {
             <p className="eyebrow">Térségi helyzetek</p>
             <h2 id="ctx-title">{page.contextTitle}</h2>
             <p className="lead">
-              Nem ígérünk kész recepteket. Ezek azok a helyzetek, amelyekkel a térség kkv-i
-              jellemzően megkeresnek minket.
+              Nem ígérünk kész recepteket. Ezek olyan helyzetek, amelyek a térség kkv-inál
+              különösen relevánsak lehetnek, és amelyekben támogatást tudunk adni.
             </p>
           </div>
           <ol className={styles.ctxList}>

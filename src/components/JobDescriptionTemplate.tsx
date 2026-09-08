@@ -1,6 +1,7 @@
 import { CopyButton } from "./CopyButton";
 import { ArrowRight } from "./Icons";
 import { JOB_DESCRIPTION_TEMPLATE, toPlainText } from "@/lib/job-description";
+import { withBase } from "@/lib/site";
 import styles from "./JobDescriptionTemplate.module.css";
 
 export const TEMPLATE_DOWNLOAD_PATH = "/letoltes/munkakori-leiras-minta.txt";
@@ -26,7 +27,7 @@ export function JobDescriptionTemplate() {
           </div>
           <div className={styles.actions}>
             <CopyButton text={plain} />
-            <a href={TEMPLATE_DOWNLOAD_PATH} download className="btn btn--ghost">
+            <a href={withBase(TEMPLATE_DOWNLOAD_PATH)} download className="btn btn--ghost">
               Letöltés szövegfájlként <ArrowRight />
             </a>
           </div>

@@ -1,6 +1,6 @@
 import { existsSync } from "node:fs";
 import path from "node:path";
-import { EXPERIENCE } from "@/lib/site";
+import { EXPERIENCE, withBase } from "@/lib/site";
 import styles from "./Experience.module.css";
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
 /** Csak akkor adunk vissza logó-URL-t, ha a fájl tényleg létezik a public/logos mappában. */
 function logoUrl(file: string) {
   const abs = path.join(process.cwd(), "public", "logos", file);
-  return existsSync(abs) ? `/logos/${file}` : null;
+  return existsSync(abs) ? withBase(`/logos/${file}`) : null;
 }
 
 /**

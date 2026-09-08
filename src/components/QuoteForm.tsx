@@ -2,8 +2,8 @@
 
 import { useSearchParams } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
-import { INTEREST_OPTIONS } from "@/lib/content";
-import { CONTACT_EMAIL, PRIVACY_URL } from "@/lib/site";
+import { INTEREST_LABELS, INTEREST_OPTIONS } from "@/lib/content";
+import { CONTACT_EMAIL, IS_STATIC_EXPORT, PRIVACY_URL } from "@/lib/site";
 import { validateQuote, type FieldErrors, type QuotePayload } from "@/lib/validation";
 import { ArrowRight } from "./Icons";
 import styles from "./QuoteForm.module.css";
@@ -111,6 +111,25 @@ function QuoteFormInner({ initialInterests }: { initialInterests: string[] }) {
       return;
     }
 
+    // Statikus kiadásnál (GitHub Pages) nincs szerveroldali küldés: a kitöltött
+    // adatokkal a látogató levelezőprogramját nyitjuk meg.
+    if (IS_STATIC_EXPORT) {
+      const interests = values.interests.map((i) => INTEREST_LABELS[i] ?? i).join(", ");
+      const body = [
+        `Név: ${values.name.trim()}`,
+        `E-mail: ${values.email.trim()}`,
+        `Cégnév: ${values.company.trim()}`,
+        `Telefonszám: ${values.phone.trim() || "–"}`,
+        `Érdeklődési terület: ${interests}`,
+        "",
+        values.message.trim(),
+      ].join("\n");
+      const subject = `Egyeztetéskérés: ${values.company.trim()} – ${interests}`;
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setStatus("success");
+      return;
+    }
+
     submittingRef.current = true;
     setStatus("submitting");
     setServerError(null);
@@ -175,11 +194,23 @@ function QuoteFormInner({ initialInterests }: { initialInterests: string[] }) {
             <path d="M5 12.5l4.5 4.5L19 7.5" />
           </svg>
         </span>
-        <h3>Köszönjük, a megkeresése megérkezett.</h3>
-        <p>
-          Az üzenetet a megadott adatokkal továbbítottuk kollégáinknak. A válasz a(z){" "}
-          <strong>{values.email}</strong> címre érkezik.
-        </p>
+        {IS_STATIC_EXPORT ? (
+          <>
+            <h3>Megnyitottuk a levelezőprogramját a kitöltött adatokkal.</h3>
+            <p>
+              Kérjük, küldje el a levelet. Ha nem nyílt meg, írjon közvetlenül a(z){" "}
+              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> címre.
+            </p>
+          </>
+        ) : (
+          <>
+            <h3>Köszönjük, a megkeresése megérkezett.</h3>
+            <p>
+              Az üzenetet a megadott adatokkal továbbítottuk kollégáinknak. A válasz a(z){" "}
+              <strong>{values.email}</strong> címre érkezik.
+            </p>
+          </>
+        )}
       </div>
     );
   }

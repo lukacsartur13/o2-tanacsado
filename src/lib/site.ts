@@ -80,6 +80,14 @@ export const EXPERIENCE = {
   note: "A megbízások jellege és részletei bizalmasak lehetnek; minden szervezetnél az adott vezetői és üzleti helyzethez igazított támogatást nyújtottunk.",
 };
 
+/** Al-útvonal statikus (GitHub Pages) kiadásnál; next/link és next/image automatikusan kezeli, nyers href/src-hez withBase() kell. */
+export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+export const IS_STATIC_EXPORT = process.env.NEXT_PUBLIC_STATIC_EXPORT === "1";
+
+export function withBase(path: string) {
+  return `${BASE_PATH}${path}`;
+}
+
 export function absoluteUrl(path: string) {
   return new URL(path, SITE_URL).toString();
 }

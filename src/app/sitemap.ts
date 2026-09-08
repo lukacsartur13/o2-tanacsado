@@ -2,6 +2,9 @@ import type { MetadataRoute } from "next";
 import { POSTS } from "@/lib/blog";
 import { LOCAL_PAGES, NAV, SERVICE_PAGES, SITE_URL } from "@/lib/site";
 
+// Statikus export (GitHub Pages) esetén is előállítható fájl.
+export const dynamic = "force-static";
+
 const LAST_MODIFIED = new Date("2026-09-08");
 
 export default function sitemap(): MetadataRoute.Sitemap {

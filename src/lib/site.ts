@@ -75,11 +75,10 @@ export const EXPERIENCE = {
     "Vezetői és szervezetfejlesztési tapasztalatunkat hazai és nemzetközi vállalatoknál szerzett gyakorlati munkára építjük. Szakmai munkánk során többek között az alábbi szervezeteknél szereztünk tapasztalatot:",
   /**
    * Logó csak dokumentált, kifejezett logóhasználati engedéllyel jeleníthető meg.
-   * Amíg ilyen nincs, showLogos: false – a blokk szöveges felsorolás. Engedély
-   * esetén a logófájlokat a logos-source/processed/ mappából a public/logos/
-   * mappába kell másolni, és a kapcsolót true-ra állítani.
+   * A megbízó 2026-09-08-án jelezte, hogy az engedély rendelkezésre áll, ezért
+   * showLogos: true. false esetén a blokk szöveges felsorolás.
    */
-  showLogos: false,
+  showLogos: true,
   organizations: [
     { name: "SPAR", logo: "spar.png" },
     { name: "HBO", logo: "hbo.png" },

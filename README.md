@@ -41,8 +41,9 @@ npm run build
 A szolgáltatási oldalak tartalma `src/lib/services.ts`-ben van, a sablon
 `src/components/ServicePage.tsx` (Service + FAQPage + BreadcrumbList schema). A tapasztalat-blokk
 (`src/components/Experience.tsx`) a `src/lib/site.ts` `EXPERIENCE` konstansából dolgozik: a
-szervezetek neve szövegesen jelenik meg. Logó csak dokumentált logóhasználati engedéllyel
-kapcsolható be (`showLogos: true` + fájlok a `public/logos/` mappában; részletek ott a README-ben).
+szervezetek logója jelenik meg (`showLogos: true`; a megbízó 2026-09-08-án jelezte, hogy a
+logóhasználati engedély rendelkezésre áll). Ha egy fájl hiányzik a `public/logos/` mappából, a
+blokk szöveges felsorolásra vált; részletek a mappa README-jében.
 A helyi oldalak (`src/lib/local.ts`) térségi állításai szándékosan óvatos, nem statisztikai
 megfogalmazásúak; új térségi oldal csak igazolható, egyedi helyi értékkel készülhet.
 

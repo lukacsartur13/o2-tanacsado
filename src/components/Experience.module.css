@@ -45,26 +45,73 @@
   }
 }
 
-/* --- logós változat (csak EXPERIENCE.showLogos = true és meglévő fájlok esetén) --- */
+/* --- logós változat: egy sorban, kis méretben, függőleges szórással, vízszintesen --- */
 .strip {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
-  gap: 20px 32px;
-  padding: 22px 0 6px;
+  gap: 22px 28px;
+  padding: 26px 8px 18px;
 }
 
 .cell {
   display: flex;
   align-items: center;
+  justify-content: center;
+  transform: translateY(var(--dy, 0));
+  transition: transform 0.35s var(--ease);
 }
+
+.cell:hover {
+  transform: translateY(0);
+}
+
+.cell:nth-child(1) { --dy: -6px; }
+.cell:nth-child(2) { --dy: 8px; }
+.cell:nth-child(3) { --dy: -10px; }
+.cell:nth-child(4) { --dy: 5px; }
+.cell:nth-child(5) { --dy: -3px; }
+.cell:nth-child(6) { --dy: 10px; }
+.cell:nth-child(7) { --dy: -8px; }
+.cell:nth-child(8) { --dy: 4px; }
+.cell:nth-child(9) { --dy: -5px; }
 
 .logo {
   display: block;
   width: auto;
   height: auto;
-  max-height: 30px;
-  max-width: 110px;
+  max-height: 26px;
+  max-width: 96px;
   object-fit: contain;
+}
+
+@media (min-width: 640px) {
+  .strip {
+    gap: 26px 36px;
+  }
+
+  .logo {
+    max-height: 30px;
+    max-width: 110px;
+  }
+}
+
+@media (min-width: 960px) {
+  .strip {
+    flex-wrap: nowrap;
+    padding: 34px 12px 24px;
+  }
+
+  .logo {
+    max-height: 32px;
+    max-width: 120px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cell {
+    transition: none;
+  }
 }

@@ -2,14 +2,14 @@
   border-top: 1px solid var(--line);
 }
 
-.grid {
+.head {
   display: grid;
-  gap: 16px 64px;
+  gap: 12px 64px;
   grid-template-columns: 1fr;
-  align-items: start;
+  align-items: end;
 }
 
-.intro h2 {
+.head h2 {
   margin: 0;
 }
 
@@ -22,8 +22,6 @@
   max-width: 64ch;
   text-wrap: pretty;
   margin: 0;
-  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
-  line-height: 1.6;
 }
 
 .names {
@@ -32,7 +30,7 @@
 }
 
 .note {
-  margin: 16px 0 0;
+  margin: 10px 0 0;
   color: var(--muted);
   font-size: 0.95rem;
   max-width: 64ch;
@@ -40,8 +38,8 @@
 }
 
 @media (min-width: 900px) {
-  .grid {
-    grid-template-columns: 4fr 8fr;
+  .head {
+    grid-template-columns: 5fr 7fr;
   }
 }
 

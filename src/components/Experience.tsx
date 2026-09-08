@@ -38,35 +38,36 @@ export function Experience({ tinted, compact }: Props) {
       className={`section ${compact ? "section--tight" : ""} ${tinted ? "section--paper2" : ""} ${styles.section}`}
       aria-labelledby="experience-title"
     >
-      <div className={`container ${styles.grid}`}>
-        <div className={`${styles.intro} reveal`}>
-          <p className="eyebrow">Tapasztalatunk</p>
-          <h2 id="experience-title" className={compact ? styles.compactTitle : undefined}>
-            {EXPERIENCE.title}
-          </h2>
-        </div>
-
-        <div className={`${styles.body} reveal`}>
+      <div className="container">
+        <div className={`${styles.head} reveal`}>
+          <div>
+            <p className="eyebrow">Tapasztalatunk</p>
+            <h2 id="experience-title" className={compact ? styles.compactTitle : undefined}>
+              {EXPERIENCE.title}
+            </h2>
+          </div>
           {allLogos ? (
-            <>
-              <p className={styles.text}>{EXPERIENCE.intro}</p>
-              <ul className={styles.strip} aria-label="Szervezetek, ahol tapasztalatot szereztünk">
-                {orgs.map((o) => (
-                  <li key={o.name} className={styles.cell}>
-                    {/* eslint-disable-next-line @next/next/no-img-element -- statikus PNG */}
-                    <img src={o.url ?? ""} alt={`${o.name} logó`} className={styles.logo} loading="lazy" />
-                  </li>
-                ))}
-              </ul>
-            </>
+            <p className={styles.text}>{EXPERIENCE.intro}</p>
           ) : (
             <p className={styles.text}>
               {EXPERIENCE.intro}{" "}
               <strong className={styles.names}>{joinNames(orgs.map((o) => o.name))}.</strong>
             </p>
           )}
-          <p className={styles.note}>{EXPERIENCE.note}</p>
         </div>
+
+        {allLogos && (
+          <ul className={`${styles.strip} reveal`} aria-label="Szervezetek, ahol tapasztalatot szereztünk">
+            {orgs.map((o) => (
+              <li key={o.name} className={styles.cell}>
+                {/* eslint-disable-next-line @next/next/no-img-element -- statikus PNG */}
+                <img src={o.url ?? ""} alt={`${o.name} logó`} className={styles.logo} loading="lazy" />
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <p className={`${styles.note} reveal`}>{EXPERIENCE.note}</p>
       </div>
     </section>
   );

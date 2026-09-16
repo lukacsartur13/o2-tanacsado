@@ -1,5 +1,6 @@
 import { existsSync } from "node:fs";
 import path from "node:path";
+import type { CSSProperties } from "react";
 import { EXPERIENCE, withBase } from "@/lib/site";
 import styles from "./Experience.module.css";
 
@@ -61,7 +62,13 @@ export function Experience({ tinted, compact }: Props) {
             {orgs.map((o) => (
               <li key={o.name} className={styles.cell}>
                 {/* eslint-disable-next-line @next/next/no-img-element -- statikus PNG */}
-                <img src={o.url ?? ""} alt={`${o.name} logó`} className={styles.logo} loading="lazy" />
+                <img
+                  src={o.url ?? ""}
+                  alt={`${o.name} logó`}
+                  className={styles.logo}
+                  loading="lazy"
+                  style={o.scale ? ({ "--logo-scale": o.scale } as CSSProperties) : undefined}
+                />
               </li>
             ))}
           </ul>

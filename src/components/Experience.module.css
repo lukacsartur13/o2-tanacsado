@@ -77,11 +77,12 @@
 .cell:nth-child(9) { --dy: -5px; }
 
 .logo {
+  /* --logo-scale: optikai korrekció a keskeny jeleknek (lásd site.ts EXPERIENCE). */
   display: block;
   width: auto;
   height: auto;
-  max-height: 26px;
-  max-width: 96px;
+  max-height: calc(26px * var(--logo-scale, 1));
+  max-width: calc(96px * var(--logo-scale, 1));
   object-fit: contain;
 }
 
@@ -91,8 +92,8 @@
   }
 
   .logo {
-    max-height: 30px;
-    max-width: 110px;
+    max-height: calc(30px * var(--logo-scale, 1));
+    max-width: calc(110px * var(--logo-scale, 1));
   }
 }
 
@@ -103,8 +104,8 @@
   }
 
   .logo {
-    max-height: 32px;
-    max-width: 120px;
+    max-height: calc(32px * var(--logo-scale, 1));
+    max-width: calc(120px * var(--logo-scale, 1));
   }
 }
 

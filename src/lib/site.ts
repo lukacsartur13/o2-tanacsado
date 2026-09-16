@@ -79,17 +79,22 @@ export const EXPERIENCE = {
    * showLogos: true. false esetén a blokk szöveges felsorolás.
    */
   showLogos: true,
+  /**
+   * `scale`: opcionális optikai korrekció. A logók azonos maximális magassággal
+   * jelennek meg, ezért a keskeny (magas képarányú) jelek kisebbnek látszanak –
+   * ezeket egy kicsit felnagyítjuk.
+   */
   organizations: [
-    { name: "SPAR", logo: "spar.png" },
+    { name: "SPAR", logo: "spar.png", scale: 1.25 },
     { name: "HBO", logo: "hbo.png" },
     { name: "PRANGL", logo: "prangl.png" },
     { name: "AUDI", logo: "audi.png" },
-    { name: "ISG", logo: "isg.png" },
+    { name: "ISG", logo: "isg.png", scale: 1.25 },
     { name: "GABLINI", logo: "gablini.png" },
-    { name: "Dr. Oetker", logo: "dr-oetker.png" },
+    { name: "Dr. Oetker", logo: "dr-oetker.png", scale: 1.25 },
     { name: "RBL", logo: "rbl.png" },
-    { name: "Oeconomus Gazdaságkutató Alapítvány", logo: "oeconomus.png" },
-  ] as { name: string; logo: string }[],
+    { name: "Oeconomus Gazdaságkutató Alapítvány", logo: "oeconomus.png", scale: 1.25 },
+  ] as { name: string; logo: string; scale?: number }[],
   note: "A megbízások jellege és részletei bizalmasak lehetnek; minden szervezetnél az adott vezetői és üzleti helyzethez igazított támogatást nyújtottunk.",
 };
 

@@ -46,7 +46,7 @@ export const POSTS: Post[] = [
     seoTitle: "Hogyan csökkenthető a fluktuáció egy kkv-ban? | O2 Tanácsadó",
     description:
       "Fluktuáció csökkentése kkv-nál négy lépésben: kilépési adatok, valódi okok, a közvetlen vezető szerepe, megtartási terv a kulcsemberekre.",
-    date: "2026-09-08",
+    date: "2026-08-26",
     excerpt:
       "A fluktuáció csökkentése nem béremeléssel kezdődik, hanem azzal, hogy a cég pontosan tudja, kik, mikor és miért mennek el. Négy lépés, amely egy 20–200 fős cégnél működik.",
     topic: "Munkaerő-megtartás",
@@ -121,7 +121,7 @@ export const POSTS: Post[] = [
     seoTitle: "Munkaerő-megtartás eszközei béremelés nélkül | O2 Tanácsadó",
     description:
       "Kilenc munkaerő-megtartási eszköz kkv-knak, amely nem béremelésre épül: vezetői beszélgetés, elvárások, fejlődési út, rugalmasság, beillesztés, elismerés.",
-    date: "2026-09-08",
+    date: "2026-08-05",
     excerpt:
       "A bér a megtartás alapfeltétele, de ritkán az oka annak, hogy valaki marad. Kilenc eszköz, amely egy kkv-nál pénz helyett vezetői figyelembe kerül.",
     topic: "Munkaerő-megtartás",
@@ -206,7 +206,7 @@ export const POSTS: Post[] = [
     seoTitle: "Munkaköri leírás: mit tartalmazzon, mit kerüljünk? | O2 Tanácsadó",
     description:
       "Mit tartalmazzon egy jó munkaköri leírás egy kkv-nál? A hasznos elemek, a hét leggyakoribb hiba, és mikor kell a teljes rendszert rendezni. Letölthető minta.",
-    date: "2026-09-08",
+    date: "2026-07-15",
     excerpt:
       "A legtöbb munkaköri leírás azért készül, mert kell, és ezért nem használja senki. Mi különbözteti meg a hasznosat a papírtól, és melyik hét hibát érdemes elkerülni?",
     topic: "Munkakörök",
@@ -283,7 +283,7 @@ export const POSTS: Post[] = [
     seoTitle: "Mikor kell HR-tanácsadó egy kkv-nak? 7 jel | O2 Tanácsadó",
     description:
       "Hét jel, hogy egy 20–200 fős cégnek HR-tanácsadóra van szüksége, és három helyzet, amikor nincs. Mit csinál a HR-tanácsadó, mi a HR-outsourcing?",
-    date: "2026-09-08",
+    date: "2026-06-24",
     excerpt:
       "Nem minden HR-probléma igényel tanácsadót. Hét jel, amikor igen, három helyzet, amikor nem, és mire számíthat az első egyeztetésen.",
     topic: "HR-tanácsadás",
@@ -349,7 +349,7 @@ export const POSTS: Post[] = [
     seoTitle: "Szervezeti diagnózis: mikor érdemes és mire jó? | O2 Tanácsadó",
     description:
       "Mi a szervezeti diagnózis, mikor érdemes elvégezni egy kkv-nál, hogyan zajlik, és mit kap belőle a vezetés? Gyakorlati leírás tulajdonosoknak.",
-    date: "2026-09-08",
+    date: "2026-06-03",
     excerpt:
       "A szervezeti diagnózis nem felmérés, hanem pontos kép arról, mi hol akad a cég működésében, és miért. Öt helyzet, amikor érdemes, és amit a vezetés a végén a kezében tart.",
     topic: "Szervezetfejlesztés",
@@ -417,7 +417,7 @@ export const POSTS: Post[] = [
     seoTitle: "Vezetői tréning vagy coaching: melyik mire való? | O2 Tanácsadó",
     description:
       "Vezetői tréning és vezetői coaching: mi a különbség, melyik milyen kkv-helyzetben működik, és mikor érdemes a kettőt kombinálni?",
-    date: "2026-09-08",
+    date: "2026-05-13",
     excerpt:
       "A tréning közös eszköztárat ad egy vezetői csoportnak, a coaching egy vezető egyéni helyzetére irányul. Hat tipikus kkv-helyzet, és hogy melyikre melyik a válasz.",
     topic: "Vezetőfejlesztés",
@@ -482,7 +482,7 @@ export const POSTS: Post[] = [
     seoTitle: "Működő ösztönzési rendszer kkv-ban: 6 lépés | O2 Tanácsadó",
     description:
       "Ösztönzési rendszer kkv-nál: hat lépés a cég céljaitól a bevezetésig, és öt hiba, amely miatt a prémiumrendszer több vitát okoz, mint motivációt.",
-    date: "2026-09-08",
+    date: "2026-04-22",
     excerpt:
       "A legtöbb kkv-prémiumrendszer több vitát okoz, mint motivációt, mert túl bonyolult, túl ritka vagy nem befolyásolható. Hat lépés egy egyszerű, működő ösztönzési rendszerhez.",
     topic: "Munkaerő-megtartás",
@@ -560,7 +560,7 @@ export const POSTS: Post[] = [
     seoTitle: "Toborzás és kiválasztás: gyorsabban, pontosabban | O2 Tanácsadó",
     description:
       "Toborzás és kiválasztás kkv-nál öt lépésben: kulcspozíciók, valós munkakörre épülő hirdetés, strukturált interjú, gyors döntés, tudatos próbaidő.",
-    date: "2026-09-08",
+    date: "2026-04-01",
     excerpt:
       "A kkv-toborzás gyakran akkor indul, amikor már ég a ház, és azért lassú, mert nem világos, kit keresnek. Öt lépés, amely gyorsabbá és pontosabbá teszi a kiválasztást.",
     topic: "Toborzás és kiválasztás",

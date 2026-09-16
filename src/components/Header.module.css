@@ -17,14 +17,11 @@
 }
 
 .brand {
-  color: var(--ink);
+  /* A logó mindig a márkaszínben jelenik meg – nincs hoverre váltó szín. */
+  color: var(--cobalt);
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-}
-
-.brand:hover {
-  color: var(--cobalt-ink);
 }
 
 .logo {

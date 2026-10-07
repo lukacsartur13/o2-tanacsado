@@ -16,7 +16,7 @@
 
 .logo {
   /* Ugyanaz a márkaszín, mint a fejlécben. */
-  color: var(--cobalt);
+  color: var(--logo);
   height: 32px;
   width: auto;
   margin-bottom: 18px;
@@ -61,7 +61,7 @@
 
 .list a:hover,
 .address a:hover {
-  color: var(--cobalt);
+  color: var(--teal);
 }
 
 .address {

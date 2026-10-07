@@ -18,7 +18,7 @@
 
 .brand {
   /* A logó mindig a márkaszínben jelenik meg – nincs hoverre váltó szín. */
-  color: var(--cobalt);
+  color: var(--logo);
   display: inline-flex;
   align-items: center;
   min-height: 44px;
@@ -57,8 +57,8 @@
 }
 
 .link[aria-current="page"] {
-  color: var(--cobalt);
-  background: var(--cobalt-tint);
+  color: var(--teal);
+  background: var(--teal-tint);
 }
 
 .actions {
@@ -140,7 +140,7 @@
 }
 
 .mobileLink[aria-current="page"] {
-  color: var(--cobalt);
+  color: var(--teal);
 }
 
 .mobileCta {

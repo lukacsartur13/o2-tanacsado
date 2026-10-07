@@ -4,7 +4,7 @@
   overflow: hidden;
   padding-block: clamp(48px, 7vw, 104px) clamp(56px, 8vw, 120px);
   background:
-    radial-gradient(1200px 600px at 85% -10%, var(--cobalt-tint) 0%, transparent 60%),
+    radial-gradient(1200px 600px at 85% -10%, var(--teal-tint) 0%, transparent 60%),
     var(--paper);
 }
 
@@ -52,7 +52,7 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  border: 2px solid var(--cobalt);
+  border: 2px solid var(--teal);
 }
 
 .heroVisual {
@@ -68,7 +68,7 @@
   width: 62%;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: var(--cobalt-tint);
+  background: var(--teal-tint);
 }
 
 .heroCircle {
@@ -92,7 +92,7 @@
   bottom: -3%;
   width: 24%;
   aspect-ratio: 1;
-  background: var(--cobalt);
+  background: var(--teal);
   border-radius: 6px;
 }
 
@@ -178,14 +178,14 @@
 }
 
 .svcCard:hover {
-  border-color: var(--cobalt-tint-2);
+  border-color: var(--teal-tint-2);
 }
 
 .svcNum {
   font-family: var(--font-display);
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--cobalt);
+  color: var(--teal);
   letter-spacing: 0.06em;
 }
 
@@ -200,7 +200,7 @@
 }
 
 .svcTitle:hover {
-  color: var(--cobalt);
+  color: var(--teal);
 }
 
 .svcCard p {
@@ -293,8 +293,8 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 2px solid var(--cobalt);
-  color: var(--cobalt);
+  border: 2px solid var(--teal);
+  color: var(--teal);
   display: grid;
   place-items: center;
 }
@@ -362,7 +362,7 @@
 }
 
 .role {
-  color: var(--cobalt);
+  color: var(--teal);
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -387,7 +387,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--cobalt-tint-2);
+  background: var(--teal-tint-2);
 }
 
 .portrait {
@@ -453,7 +453,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--cobalt);
+  color: var(--teal);
 }
 
 .post h3 {
@@ -467,7 +467,7 @@
 }
 
 .post h3 a:hover {
-  color: var(--cobalt);
+  color: var(--teal);
 }
 
 .post p {

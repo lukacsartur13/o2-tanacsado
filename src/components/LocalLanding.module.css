@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   padding-block: clamp(48px, 6vw, 96px) clamp(40px, 5vw, 72px);
-  background: radial-gradient(900px 500px at 100% 0%, var(--cobalt-tint) 0%, transparent 60%), var(--paper);
+  background: radial-gradient(900px 500px at 100% 0%, var(--teal-tint) 0%, transparent 60%), var(--paper);
 }
 
 .headGrid {
@@ -27,7 +27,7 @@
 }
 
 .headAside {
-  border-left: 3px solid var(--cobalt);
+  border-left: 3px solid var(--teal);
   padding-left: 22px;
 }
 
@@ -58,7 +58,7 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  border: 2px solid var(--cobalt);
+  border: 2px solid var(--teal);
 }
 
 @media (min-width: 900px) {
@@ -123,7 +123,7 @@
 .serviceNum {
   font-family: var(--font-display);
   font-weight: 700;
-  color: var(--cobalt);
+  color: var(--teal);
   margin-bottom: 4px;
 }
 
@@ -133,7 +133,7 @@
 }
 
 .serviceBody h3 a:hover {
-  color: var(--cobalt);
+  color: var(--teal);
 }
 
 .serviceLead {
@@ -146,7 +146,7 @@
   color: var(--ink);
   max-width: 62ch;
   padding: 14px 18px;
-  background: var(--cobalt-tint);
+  background: var(--teal-tint);
   border-radius: var(--radius-s);
   text-wrap: pretty;
 }
@@ -218,8 +218,8 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 2px solid var(--cobalt);
-  color: var(--cobalt);
+  border: 2px solid var(--teal);
+  color: var(--teal);
   display: grid;
   place-items: center;
 }

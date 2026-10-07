@@ -65,7 +65,7 @@
 }
 
 .light .points li::before {
-  border-color: var(--cobalt);
+  border-color: var(--teal);
   opacity: 1;
 }
 

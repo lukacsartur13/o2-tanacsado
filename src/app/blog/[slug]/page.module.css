@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   padding-block: clamp(40px, 5vw, 72px) clamp(28px, 4vw, 48px);
-  background: radial-gradient(900px 500px at 100% 0%, var(--cobalt-tint) 0%, transparent 60%), var(--paper);
+  background: radial-gradient(900px 500px at 100% 0%, var(--teal-tint) 0%, transparent 60%), var(--paper);
 }
 
 .headInner {
@@ -23,7 +23,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--cobalt);
+  color: var(--teal);
   margin-bottom: 18px;
 }
 
@@ -97,13 +97,13 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  border: 2.5px solid var(--cobalt);
+  border: 2.5px solid var(--teal);
 }
 
 /* in-article CTA */
 .cta {
   margin-top: 48px;
-  background: var(--cobalt-tint);
+  background: var(--teal-tint);
   border-radius: var(--radius);
   padding: clamp(24px, 3vw, 36px);
   position: relative;
@@ -118,12 +118,12 @@
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  border: 1.5px solid var(--cobalt-tint-2);
+  border: 1.5px solid var(--teal-tint-2);
 }
 
 .cta h2 {
   font-size: clamp(1.4rem, 2.2vw, 1.8rem);
-  color: var(--cobalt-ink);
+  color: var(--teal-ink);
 }
 
 .cta p {
@@ -176,7 +176,7 @@
 }
 
 .sideService:hover {
-  color: var(--cobalt);
+  color: var(--teal);
 }
 
 .sideService svg {
@@ -205,7 +205,7 @@
 }
 
 .relatedList a:hover {
-  color: var(--cobalt);
+  color: var(--teal);
 }
 
 @media (min-width: 960px) {

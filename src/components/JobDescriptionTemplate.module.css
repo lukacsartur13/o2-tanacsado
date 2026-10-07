@@ -132,8 +132,8 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 2px solid var(--cobalt);
-  color: var(--cobalt);
+  border: 2px solid var(--teal);
+  color: var(--teal);
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 0.9rem;

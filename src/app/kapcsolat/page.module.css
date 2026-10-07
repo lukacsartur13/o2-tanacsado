@@ -1,6 +1,6 @@
 .head {
   padding-block: clamp(48px, 6vw, 88px) clamp(40px, 5vw, 72px);
-  background: radial-gradient(900px 500px at 100% 0%, var(--cobalt-tint) 0%, transparent 60%), var(--paper);
+  background: radial-gradient(900px 500px at 100% 0%, var(--teal-tint) 0%, transparent 60%), var(--paper);
 }
 
 .grid {
@@ -57,7 +57,7 @@
 }
 
 .list a:hover {
-  color: var(--cobalt);
+  color: var(--teal);
 }
 
 @media (min-width: 900px) {

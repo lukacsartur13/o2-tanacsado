@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   padding-block: clamp(48px, 6vw, 88px) clamp(32px, 4vw, 56px);
-  background: radial-gradient(900px 500px at 100% 0%, var(--cobalt-tint) 0%, transparent 60%), var(--paper);
+  background: radial-gradient(900px 500px at 100% 0%, var(--teal-tint) 0%, transparent 60%), var(--paper);
 }
 
 .head .container {
@@ -41,14 +41,14 @@
 }
 
 .jump a span {
-  color: var(--cobalt);
+  color: var(--teal);
   font-family: var(--font-display);
   font-weight: 700;
 }
 
 .jump a:hover {
-  border-color: var(--cobalt);
-  background: var(--cobalt-tint);
+  border-color: var(--teal);
+  background: var(--teal-tint);
 }
 
 /* ---------- service sections ---------- */
@@ -95,7 +95,7 @@
   bottom: -4%;
   width: 26%;
   aspect-ratio: 1;
-  background: var(--cobalt-tint-2);
+  background: var(--teal-tint-2);
   border-radius: 6px;
 }
 
@@ -113,7 +113,7 @@
 .blocks h3 {
   font-size: 1.1rem;
   margin-bottom: 0.6em;
-  color: var(--cobalt-ink);
+  color: var(--teal-ink);
 }
 
 .blocks p {
@@ -148,7 +148,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  border: 2.5px solid var(--cobalt);
+  border: 2.5px solid var(--teal);
 }
 
 .coverage {

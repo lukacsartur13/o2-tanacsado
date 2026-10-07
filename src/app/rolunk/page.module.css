@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   padding-block: clamp(48px, 6vw, 88px) clamp(40px, 5vw, 64px);
-  background: radial-gradient(900px 500px at 0% 0%, var(--cobalt-tint) 0%, transparent 60%), var(--paper);
+  background: radial-gradient(900px 500px at 0% 0%, var(--teal-tint) 0%, transparent 60%), var(--paper);
 }
 
 .headGrid {
@@ -38,7 +38,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--cobalt);
+  color: var(--teal);
   padding-top: 3px;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .mission {
-  background: var(--cobalt-tint);
+  background: var(--teal-tint);
   border-radius: var(--radius);
   padding: clamp(24px, 3vw, 36px);
   position: relative;
@@ -83,7 +83,7 @@
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  border: 1.5px solid var(--cobalt-tint-2);
+  border: 1.5px solid var(--teal-tint-2);
 }
 
 .missionText {
@@ -92,7 +92,7 @@
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.015em;
-  color: var(--cobalt-ink);
+  color: var(--teal-ink);
   margin-bottom: 1em;
   text-wrap: balance;
 }
@@ -139,7 +139,7 @@
   grid-row: 1 / span 2;
   font-family: var(--font-display);
   font-weight: 700;
-  color: var(--cobalt);
+  color: var(--teal);
   padding-top: 0.2em;
 }
 
@@ -183,7 +183,7 @@
 }
 
 .role {
-  color: var(--cobalt);
+  color: var(--teal);
   font-weight: 700;
   margin-bottom: 12px;
 }
@@ -208,7 +208,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--cobalt-tint-2);
+  background: var(--teal-tint-2);
 }
 
 .portrait {

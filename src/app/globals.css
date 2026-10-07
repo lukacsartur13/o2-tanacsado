@@ -13,11 +13,15 @@
   --paper-2: #f5f7fb;
   --paper-3: #eaeef8;
 
-  --cobalt: #1f3fd6;
-  --cobalt-deep: #142f9f;
-  --cobalt-ink: #082468;
-  --cobalt-tint: #e7ecfb;
-  --cobalt-tint-2: #cfd9f6;
+  /* Márkaszín: a logó türkizének (#0aaea9) olvasható, sötétebb árnyalatai. */
+  --teal: #077a76;
+  --teal-deep: #056461;
+  --teal-ink: #04504e;
+  --teal-tint: #e4f6f5;
+  --teal-tint-2: #c3ebe8;
+
+  /* Logószín: a régi o2tanacsado.hu türkiz akcentszíne. */
+  --logo: #0aaea9;
 
   --ok: #0f7a4a;
   --ok-tint: #e5f5ec;
@@ -78,23 +82,23 @@ svg {
 }
 
 a {
-  color: var(--cobalt);
+  color: var(--teal);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
 }
 
 a:hover {
-  color: var(--cobalt-deep);
+  color: var(--teal-deep);
 }
 
 :focus-visible {
-  outline: 3px solid var(--cobalt);
+  outline: 3px solid var(--teal);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
 ::selection {
-  background: var(--cobalt-tint-2);
+  background: var(--teal-tint-2);
   color: var(--ink);
 }
 
@@ -213,7 +217,7 @@ strong {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--cobalt);
+  color: var(--teal);
   margin-bottom: 18px;
 }
 
@@ -222,16 +226,16 @@ strong {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--cobalt);
+  background: var(--teal);
   flex: none;
 }
 
 .section--ink .eyebrow {
-  color: #a9baf5;
+  color: #7fd8d4;
 }
 
 .section--ink .eyebrow::before {
-  background: #a9baf5;
+  background: #7fd8d4;
 }
 
 .lead {
@@ -279,7 +283,7 @@ strong {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  border: 2.5px solid var(--cobalt);
+  border: 2.5px solid var(--teal);
 }
 
 /* --------------------------------------------------------------------------
@@ -321,14 +325,14 @@ strong {
 }
 
 .btn--primary {
-  background: var(--cobalt);
+  background: var(--teal);
   color: #fff;
-  border-color: var(--cobalt);
+  border-color: var(--teal);
 }
 
 .btn--primary:hover {
-  background: var(--cobalt-deep);
-  border-color: var(--cobalt-deep);
+  background: var(--teal-deep);
+  border-color: var(--teal-deep);
   color: #fff;
 }
 
@@ -354,14 +358,14 @@ strong {
 
 .btn--white {
   background: #fff;
-  color: var(--cobalt-ink);
+  color: var(--teal-ink);
   border-color: #fff;
 }
 
 .btn--white:hover {
-  background: var(--cobalt-tint);
-  border-color: var(--cobalt-tint);
-  color: var(--cobalt-ink);
+  background: var(--teal-tint);
+  border-color: var(--teal-tint);
+  color: var(--teal-ink);
 }
 
 .btn--sm {
@@ -385,7 +389,7 @@ strong {
   align-items: center;
   gap: 8px;
   font-weight: 700;
-  color: var(--cobalt);
+  color: var(--teal);
   text-decoration: none;
   min-height: 44px;
 }
@@ -406,7 +410,7 @@ strong {
 .o2-ring {
   position: absolute;
   border-radius: 50%;
-  border: 1.5px solid var(--cobalt-tint-2);
+  border: 1.5px solid var(--teal-tint-2);
   pointer-events: none;
   z-index: 0;
 }
@@ -414,7 +418,7 @@ strong {
 .o2-disc {
   position: absolute;
   border-radius: 50%;
-  background: var(--cobalt-tint);
+  background: var(--teal-tint);
   pointer-events: none;
   z-index: 0;
 }
@@ -487,8 +491,8 @@ strong {
 .field input:focus,
 .field textarea:focus {
   outline: none;
-  border-color: var(--cobalt);
-  box-shadow: 0 0 0 4px var(--cobalt-tint);
+  border-color: var(--teal);
+  box-shadow: 0 0 0 4px var(--teal-tint);
 }
 
 .field input[aria-invalid="true"],
@@ -551,12 +555,12 @@ strong {
 }
 
 .check:has(input:checked) {
-  border-color: var(--cobalt);
-  background: var(--cobalt-tint);
+  border-color: var(--teal);
+  background: var(--teal-tint);
 }
 
 .check:has(input:focus-visible) {
-  outline: 3px solid var(--cobalt);
+  outline: 3px solid var(--teal);
   outline-offset: 2px;
 }
 
@@ -564,7 +568,7 @@ strong {
   width: 20px;
   height: 20px;
   margin: 1px 0 0;
-  accent-color: var(--cobalt);
+  accent-color: var(--teal);
   flex: none;
 }
 

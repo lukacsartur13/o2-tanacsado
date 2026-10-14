@@ -483,3 +483,83 @@
     grid-template-columns: 5fr 7fr;
   }
 }
+
+/* ---------- új szövegű oldalak (OfferPage) ---------- */
+.boxNote {
+  position: relative;
+  z-index: 1;
+  margin: 20px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--teal-tint-2);
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+.afterList {
+  margin-top: 24px;
+}
+
+.box {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(24px, 3vw, 36px);
+}
+
+.box h3 {
+  margin-bottom: 0.5em;
+}
+
+.box p {
+  margin: 0;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+.boxAccent {
+  background: var(--teal-tint);
+  border-color: transparent;
+}
+
+.boxAccent h3 {
+  color: var(--teal-ink);
+}
+
+.processNote {
+  margin: 28px 0 0;
+  font-weight: 600;
+  color: var(--ink);
+  max-width: 68ch;
+}
+
+.expectGrid {
+  display: grid;
+  gap: 36px;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+.expectCaveat {
+  color: var(--ink-2);
+  font-size: 0.98rem;
+  max-width: 56ch;
+  text-wrap: pretty;
+  border-left: 3px solid var(--teal);
+  padding-left: 16px;
+  margin-top: 22px;
+}
+
+.expectList li {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  padding: 16px 18px;
+  font-weight: 600;
+}
+
+@media (min-width: 960px) {
+  .expectGrid {
+    grid-template-columns: 5fr 7fr;
+    gap: 64px;
+  }
+}

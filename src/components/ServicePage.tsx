@@ -6,14 +6,14 @@ import { FaqList, faqPageLd } from "./FaqList";
 import { ArrowRight, Check } from "./Icons";
 import { QuoteSection } from "./QuoteSection";
 import { POST_BY_SLUG } from "@/lib/blog";
-import { SERVICE_BY_PATH, type ServicePageData } from "@/lib/services";
+import type { ServicePageData } from "@/lib/services";
 import { breadcrumbLd, jsonLd } from "@/lib/seo";
-import { COVERAGE_STATEMENT, LEGAL_NAME, SITE_URL } from "@/lib/site";
+import { COVERAGE_STATEMENT, LEGAL_NAME, SERVICE_PAGES, SITE_URL } from "@/lib/site";
 import styles from "./ServicePage.module.css";
 
 /** Kapcsolódó oldal címkéje: szolgáltatási oldal vagy a /szolgaltatasok/ horgonya. */
 function relatedLabel(path: string) {
-  const svc = SERVICE_BY_PATH[path];
+  const svc = SERVICE_PAGES.find((s) => s.href === path);
   if (svc) return svc.label;
   if (path === "/szolgaltatasok/#toborzas") return "Toborzás és kiválasztás";
   if (path === "/szolgaltatasok/#munkakorok") return "Munkakörök és szervezeti struktúra";
@@ -63,7 +63,7 @@ export function ServicePage({ page, children }: Props) {
             <h1 id="service-h1">{page.h1}</h1>
             <p className="lead">{page.lead}</p>
             <div className={styles.headCtas}>
-              <CtaLink service={page.interest} local>
+              <CtaLink local>
                 {page.cta}
               </CtaLink>
               <a href="#folyamat" className="btn btn--ghost">
@@ -124,7 +124,7 @@ export function ServicePage({ page, children }: Props) {
               {page.symptoms.intro ??
                 "Ha ezek közül legalább kettő ismerős, érdemes egy első egyeztetésen átbeszélni a helyzetet."}
             </p>
-            <CtaLink service={page.interest} local variant="ghost">
+            <CtaLink local variant="ghost">
               Beszéljük át a helyzetet
             </CtaLink>
           </div>
@@ -232,7 +232,7 @@ export function ServicePage({ page, children }: Props) {
               Ha a kérdésére nem talál választ, írja meg az egyeztetéskérésben. Minden megkeresésre
               válaszolunk.
             </p>
-            <CtaLink service={page.interest} local variant="ghost" size="sm">
+            <CtaLink local variant="ghost" size="sm">
               Kérdésem van
             </CtaLink>
           </div>
@@ -282,7 +282,7 @@ export function ServicePage({ page, children }: Props) {
         </div>
       </section>
 
-      <QuoteSection title={page.form.title} text={page.form.text} defaultInterests={[page.interest].flat()} />
+      <QuoteSection title={page.form.title} text={page.form.text} />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(serviceLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqPageLd(page.faq)) }} />

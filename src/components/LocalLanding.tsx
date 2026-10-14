@@ -78,7 +78,7 @@ export function LocalLanding({ page }: { page: LocalPage }) {
                   <p className={styles.serviceLead}>{s.lead}</p>
                   <p className={styles.serviceNote}>{page.serviceNotes[s.id]}</p>
                   <div className={styles.serviceLinks}>
-                    <CtaLink service={s.id} local variant="ghost" size="sm">
+                    <CtaLink local variant="ghost" size="sm">
                       Egyeztetést kérek erre
                     </CtaLink>
                     <Link href={`/szolgaltatasok/#${s.id}`} className="link-arrow">

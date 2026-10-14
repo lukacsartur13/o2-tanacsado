@@ -1,8 +1,6 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
-import { INTEREST_LABELS, INTEREST_OPTIONS } from "@/lib/content";
 import { CONTACT_EMAIL, IS_STATIC_EXPORT, PRIVACY_URL } from "@/lib/site";
 import { validateQuote, type FieldErrors, type QuotePayload } from "@/lib/validation";
 import { ArrowRight } from "./Icons";
@@ -12,54 +10,17 @@ type Status = "idle" | "submitting" | "success" | "error";
 
 const EMPTY: QuotePayload = {
   name: "",
-  email: "",
   company: "",
-  interests: [],
+  email: "",
   phone: "",
   message: "",
   consent: false,
   website: "",
 };
 
-const VALID_IDS = new Set(INTEREST_OPTIONS.map((o) => o.value));
-
-interface Props {
-  /** Területek, amelyeket az oldal alapból előválaszt (pl. helyi landing). */
-  defaultInterests?: string[];
-}
-
-/**
- * A ?terulet=... paraméterből (szolgáltatási CTA-k) olvassuk az előválasztást.
- * A paraméter kulcsként szolgál, így új előválasztásnál az űrlap tiszta
- * állapotból indul, effekt nélkül. Statikus oldalon a useSearchParams miatt ez
- * a rész kliensoldalon renderelődik; a Suspense-tartalék (QuoteFormStatic)
- * ugyanezt az űrlapot adja a kezdeti HTML-ben.
- */
-export function QuoteForm({ defaultInterests = [] }: Props) {
-  const searchParams = useSearchParams();
-  const raw = searchParams.get("terulet") ?? "";
-  const fromQuery = raw
-    .split(",")
-    .map((s) => s.trim())
-    .filter((s) => VALID_IDS.has(s));
-  const initial = Array.from(
-    new Set([...defaultInterests.filter((i) => VALID_IDS.has(i)), ...fromQuery]),
-  );
-  return <QuoteFormInner key={raw} initialInterests={initial} />;
-}
-
-/** Paraméter nélküli változat a kezdeti (statikus) HTML-hez. */
-export function QuoteFormStatic({ defaultInterests = [] }: Props) {
-  return (
-    <QuoteFormInner initialInterests={defaultInterests.filter((i) => VALID_IDS.has(i))} />
-  );
-}
-
-function QuoteFormInner({ initialInterests }: { initialInterests: string[] }) {
-  const [values, setValues] = useState<QuotePayload>(() => ({
-    ...EMPTY,
-    interests: initialInterests,
-  }));
+/** Kapcsolatfelvételi űrlap: név, cégnév, e-mail-cím, telefonszám és egy szabad szöveges mező. */
+export function QuoteForm() {
+  const [values, setValues] = useState<QuotePayload>(EMPTY);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<Status>("idle");
   const [serverError, setServerError] = useState<string | null>(null);
@@ -73,26 +34,8 @@ function QuoteFormInner({ initialInterests }: { initialInterests: string[] }) {
     if (errors[key]) setErrors((e) => ({ ...e, [key]: undefined }));
   };
 
-  const toggleInterest = (id: string) => {
-    setValues((v) => ({
-      ...v,
-      interests: v.interests.includes(id)
-        ? v.interests.filter((x) => x !== id)
-        : [...v.interests, id],
-    }));
-    if (errors.interests) setErrors((e) => ({ ...e, interests: undefined }));
-  };
-
   const focusFirstError = (errs: FieldErrors) => {
-    const order: (keyof QuotePayload)[] = [
-      "name",
-      "email",
-      "company",
-      "interests",
-      "phone",
-      "message",
-      "consent",
-    ];
+    const order: (keyof QuotePayload)[] = ["name", "company", "email", "phone", "message", "consent"];
     const first = order.find((k) => errs[k]);
     if (!first || !formRef.current) return;
     const el = formRef.current.querySelector<HTMLElement>(`[data-field="${first}"]`);
@@ -114,17 +57,15 @@ function QuoteFormInner({ initialInterests }: { initialInterests: string[] }) {
     // Statikus kiadásnál (GitHub Pages) nincs szerveroldali küldés: a kitöltött
     // adatokkal a látogató levelezőprogramját nyitjuk meg.
     if (IS_STATIC_EXPORT) {
-      const interests = values.interests.map((i) => INTEREST_LABELS[i] ?? i).join(", ");
       const body = [
         `Név: ${values.name.trim()}`,
-        `E-mail: ${values.email.trim()}`,
         `Cégnév: ${values.company.trim()}`,
+        `E-mail: ${values.email.trim()}`,
         `Telefonszám: ${values.phone.trim() || "–"}`,
-        `Érdeklődési terület: ${interests}`,
         "",
         values.message.trim(),
       ].join("\n");
-      const subject = `Egyeztetéskérés: ${values.company.trim()} – ${interests}`;
+      const subject = `Első beszélgetés: ${values.company.trim()}`;
       window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       setStatus("success");
       return;
@@ -159,11 +100,11 @@ function QuoteFormInner({ initialInterests }: { initialInterests: string[] }) {
       setServerError(
         data.error === "not_configured"
           ? "Az űrlapküldés jelenleg nem elérhető."
-          : "Az ajánlatkérést nem sikerült elküldeni.",
+          : "Az üzenetet nem sikerült elküldeni.",
       );
       setStatus("error");
     } catch {
-      setServerError("Hálózati hiba történt, az ajánlatkérés nem ment el.");
+      setServerError("Hálózati hiba történt, az üzenet nem ment el.");
       setStatus("error");
     } finally {
       submittingRef.current = false;
@@ -196,17 +137,17 @@ function QuoteFormInner({ initialInterests }: { initialInterests: string[] }) {
         </span>
         {IS_STATIC_EXPORT ? (
           <>
-            <h3>Megnyitottuk a levelezőprogramját a kitöltött adatokkal.</h3>
+            <h3>Megnyitottuk a levelezőprogramodat a kitöltött adatokkal.</h3>
             <p>
-              Kérjük, küldje el a levelet. Ha nem nyílt meg, írjon közvetlenül a(z){" "}
+              Küldd el a levelet. Ha nem nyílt meg, írj közvetlenül a(z){" "}
               <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> címre.
             </p>
           </>
         ) : (
           <>
-            <h3>Köszönjük, a megkeresése megérkezett.</h3>
+            <h3>Köszönjük, megkaptuk az üzeneted.</h3>
             <p>
-              Az üzenetet a megadott adatokkal továbbítottuk kollégáinknak. A válasz a(z){" "}
+              A válasz a(z){" "}
               <strong>{values.email}</strong> címre érkezik.
             </p>
           </>
@@ -243,28 +184,6 @@ function QuoteFormInner({ initialInterests }: { initialInterests: string[] }) {
         </div>
 
         <div className="field">
-          <label htmlFor={id("email")}>Céges e-mail</label>
-          <input
-            id={id("email")}
-            data-field="email"
-            type="email"
-            name="email"
-            autoComplete="email"
-            inputMode="email"
-            required
-            value={values.email}
-            onChange={(e) => set("email", e.target.value)}
-            aria-invalid={errors.email ? "true" : undefined}
-            aria-describedby={errors.email ? id("email-err") : undefined}
-          />
-          {errors.email && (
-            <p id={id("email-err")} className="field__error">
-              {errors.email}
-            </p>
-          )}
-        </div>
-
-        <div className="field">
           <label htmlFor={id("company")}>Cégnév</label>
           <input
             id={id("company")}
@@ -281,6 +200,28 @@ function QuoteFormInner({ initialInterests }: { initialInterests: string[] }) {
           {errors.company && (
             <p id={id("company-err")} className="field__error">
               {errors.company}
+            </p>
+          )}
+        </div>
+
+        <div className="field">
+          <label htmlFor={id("email")}>E-mail-cím</label>
+          <input
+            id={id("email")}
+            data-field="email"
+            type="email"
+            name="email"
+            autoComplete="email"
+            inputMode="email"
+            required
+            value={values.email}
+            onChange={(e) => set("email", e.target.value)}
+            aria-invalid={errors.email ? "true" : undefined}
+            aria-describedby={errors.email ? id("email-err") : undefined}
+          />
+          {errors.email && (
+            <p id={id("email-err")} className="field__error">
+              {errors.email}
             </p>
           )}
         </div>
@@ -308,40 +249,10 @@ function QuoteFormInner({ initialInterests }: { initialInterests: string[] }) {
           )}
         </div>
 
-        <fieldset
-          className={`field ${styles.full}`}
-          aria-describedby={errors.interests ? id("int-err") : id("int-hint")}
-          aria-invalid={errors.interests ? "true" : undefined}
-        >
-          <legend className="field__legend">Érdeklődési terület</legend>
-          <p id={id("int-hint")} className="field__hint">
-            Több terület is választható.
-          </p>
-          <div className="checks">
-            {INTEREST_OPTIONS.map((o, i) => (
-              <label key={o.value} className={`check ${o.value === "segitseg" ? "check--wide" : ""}`}>
-                <input
-                  type="checkbox"
-                  name="interests"
-                  value={o.value}
-                  data-field={i === 0 ? "interests" : undefined}
-                  checked={values.interests.includes(o.value)}
-                  onChange={() => toggleInterest(o.value)}
-                />
-                <span>{o.label}</span>
-              </label>
-            ))}
-          </div>
-          {errors.interests && (
-            <p id={id("int-err")} className="field__error">
-              {errors.interests}
-            </p>
-          )}
-        </fieldset>
-
         <div className={`field ${styles.full}`}>
           <label htmlFor={id("message")}>
-            Rövid üzenet <span className="optional">(opcionális)</span>
+            Röviden: mi az, ami most a legtöbb energiát viszi el a cégnél?{" "}
+            <span className="optional">(opcionális)</span>
           </label>
           <textarea
             id={id("message")}
@@ -349,7 +260,6 @@ function QuoteFormInner({ initialInterests }: { initialInterests: string[] }) {
             name="message"
             rows={4}
             maxLength={3000}
-            placeholder="Például: milyen helyzetben van most a cég, mire keresnek megoldást."
             value={values.message}
             onChange={(e) => set("message", e.target.value)}
             aria-invalid={errors.message ? "true" : undefined}
@@ -388,7 +298,7 @@ function QuoteFormInner({ initialInterests }: { initialInterests: string[] }) {
               aria-describedby={errors.consent ? id("consent-err") : undefined}
             />
             <span>
-              Hozzájárulok, hogy az O2 Tanácsadó Kft. a megadott adataimat az ajánlatkérésem
+              Hozzájárulok, hogy az O2 Tanácsadó Kft. a megadott adataimat a megkeresésem
               megválaszolása céljából kezelje.{" "}
               <a href={PRIVACY_URL} target="_blank" rel="noopener">
                 Adatkezelési tájékoztató
@@ -405,19 +315,19 @@ function QuoteFormInner({ initialInterests }: { initialInterests: string[] }) {
 
       <div className={styles.actions}>
         <button type="submit" className="btn btn--primary" disabled={busy}>
-          {busy ? "Küldés folyamatban…" : "Egyeztetéskérés elküldése"}
+          {busy ? "Küldés folyamatban…" : "Küldöm"}
           {!busy && <ArrowRight />}
         </button>
         <p className={styles.note}>
-          Kötelező mezők: név, céges e-mail, cégnév, érdeklődési terület.
+          Kötelező mezők: név, cégnév, e-mail-cím.
         </p>
       </div>
 
       <div ref={statusRef} tabIndex={-1} aria-live="assertive" className={styles.live}>
         {status === "error" && serverError && (
           <div className="form-status form-status--error" role="alert">
-            {serverError} A kitöltött adatok megmaradtak, kérjük, próbálja újra, vagy írjon
-            közvetlenül a(z) <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> címre.
+            {serverError} A kitöltött adatok megmaradtak. Próbáld újra, vagy írj közvetlenül
+            a(z) <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> címre.
           </div>
         )}
       </div>

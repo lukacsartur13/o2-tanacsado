@@ -1,15 +1,11 @@
-import Link from "next/link";
-import { ArrowRight } from "@/components/Icons";
-import { QuoteSection } from "@/components/QuoteSection";
-import { SERVICES } from "@/lib/content";
+import { QuoteForm } from "@/components/QuoteForm";
 import { breadcrumbLd, jsonLd, pageMetadata } from "@/lib/seo";
-import { ADDRESS, CONTACT_EMAIL, LEGAL_NAME } from "@/lib/site";
+import { ADDRESS, CONTACT_EMAIL, FORM_ANCHOR, LEGAL_NAME } from "@/lib/site";
 import styles from "./page.module.css";
 
 export const metadata = pageMetadata({
-  title: "Kapcsolat és ajánlatkérés | O2 Tanácsadó",
-  description:
-    "Kérjen ajánlatot HR-tanácsadásra: HR-stratégia, toborzás, munkakörök, szervezetfejlesztés. O2 Tanácsadó Kft., 1088 Budapest, Bródy Sándor utca 26.",
+  title: "Kapcsolat: beszéljünk személyesen | O2 Tanácsadó",
+  description: `Mondd el röviden, mi viszi el most a legtöbb energiádat a cégnél. Ha inkább e-mailt írnál, az ${CONTACT_EMAIL} címen is elérsz minket. Mindenkinek válaszolunk.`,
   path: "/kapcsolat/",
 });
 
@@ -18,43 +14,46 @@ export default function ContactPage() {
     <>
       <section className={styles.head} aria-labelledby="contact-h1">
         <div className={`container ${styles.grid}`}>
-          <div>
+          <div className={styles.intro}>
             <p className="eyebrow">Kapcsolat</p>
-            <h1 id="contact-h1">Kapcsolat és ajánlatkérés</h1>
+            <h1 id="contact-h1">Beszéljünk személyesen</h1>
             <p className="lead">
-              A leggyorsabb út az alábbi ajánlatkérő űrlap. Ha inkább e-mailt írna, a{" "}
-              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> címen érhet el minket.
+              Mondd el röviden, mi viszi el most a legtöbb energiádat a cégnél. Ha inkább e-mailt írnál,
+              az <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> címen is elérsz minket. Mindenkinek
+              válaszolunk.
             </p>
-            <a href="#ajanlatkeres" className="link-arrow">
-              Ugrás az űrlaphoz <ArrowRight />
-            </a>
+
+            <div className={styles.info}>
+              <div>
+                <h2 className={styles.infoTitle}>Elérhetőség</h2>
+                <address className={styles.address}>
+                  {LEGAL_NAME}, {ADDRESS.full}
+                </address>
+              </div>
+              <div>
+                <h2 className={styles.infoTitle}>Személyes első beszélgetés</h2>
+                <p>
+                  Egy-másfél órás személyes találkozó. Közösen eldöntjük, van-e értelme együtt dolgozni.
+                  Díjmentes, és nem jár elköteleződéssel. A megállapodásig általában két-három ilyen
+                  beszélgetés kell, mert a bizalomhoz idő kell.
+                </p>
+              </div>
+              <div>
+                <h2 className={styles.infoTitle}>Titoktartás</h2>
+                <p>Amit ebben a beszélgetésben elmondasz, az nálunk marad.</p>
+              </div>
+            </div>
           </div>
-          <div className={styles.card}>
-            <h2 className={styles.cardTitle}>Elérhetőség</h2>
-            <address className={styles.address}>
-              <strong>{LEGAL_NAME}</strong>
-              <br />
-              {ADDRESS.full}
-              <br />
-              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-            </address>
-            <h2 className={styles.cardTitle}>Mire kérhet ajánlatot?</h2>
-            <ul className={styles.list}>
-              {SERVICES.map((s) => (
-                <li key={s.id}>
-                  <Link href={`/szolgaltatasok/#${s.id}`}>{s.title}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+
+          <section id={FORM_ANCHOR} className={styles.formWrap} aria-labelledby={`${FORM_ANCHOR}-title`}>
+            <h2 id={`${FORM_ANCHOR}-title`} className="visually-hidden">
+              Űrlap
+            </h2>
+            <p className={styles.formNote}>A válasz a megadott e-mail-címre érkezik.</p>
+            <QuoteForm />
+          </section>
         </div>
       </section>
-
-      <QuoteSection
-        light
-        title="Ajánlatkérő űrlap"
-        text="Töltse ki az alábbi mezőket. A válasz a megadott e-mail-címre érkezik."
-      />
 
       <script
         type="application/ld+json"

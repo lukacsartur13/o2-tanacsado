@@ -27,8 +27,6 @@ export interface Post {
   /** Kapcsolódó szolgáltatási oldal (path). */
   service: string;
   serviceLabel: string;
-  /** Az űrlapon előre kiválasztott érdeklődési terület(ek). */
-  interest: string | string[];
   ctaTitle: string;
   ctaText: string;
   ctaLabel: string;
@@ -52,7 +50,6 @@ export const POSTS: Post[] = [
     topic: "Munkaerő-megtartás",
     service: "/munkaero-megtartas/",
     serviceLabel: "Munkaerő-megtartás",
-    interest: "megtartas",
     ctaTitle: "Magas a fluktuáció a cégénél?",
     ctaText: "Beszéljük át, mit mutatnak a kilépési adatok, és hol érdemes kezdeni. Az első egyeztetés díjmentes.",
     ctaLabel: "Kérjen konzultációt a megtartásról",
@@ -127,7 +124,6 @@ export const POSTS: Post[] = [
     topic: "Munkaerő-megtartás",
     service: "/munkaero-megtartas/",
     serviceLabel: "Munkaerő-megtartás",
-    interest: "megtartas",
     ctaTitle: "Melyik eszköz illik a cégéhez?",
     ctaText: "A megtartási eszközök akkor működnek, ha a fluktuáció valódi okaira válaszolnak. Segítünk feltárni az okokat és összeállítani a megtartási tervet.",
     ctaLabel: "Kérjen konzultációt",
@@ -212,7 +208,6 @@ export const POSTS: Post[] = [
     topic: "Munkakörök",
     service: "/munkakori-leiras-minta/",
     serviceLabel: "Munkaköri leírás minta",
-    interest: "munkakorok",
     ctaTitle: "Sok munkakört kell rendezni?",
     ctaText: "Ha a munkaköri leírások rendezése a teljes szervezetet érinti, tanácsadóként segítünk a szervezeti felépítés és a munkakörök összehangolásában.",
     ctaLabel: "Kérjen segítséget a munkakörökhöz",
@@ -289,7 +284,6 @@ export const POSTS: Post[] = [
     topic: "HR-tanácsadás",
     service: "/hr-tanacsadas-kkv-knak/",
     serviceLabel: "HR-tanácsadás kkv-knak",
-    interest: "hr-strategia",
     ctaTitle: "Ismerős a jelek közül néhány?",
     ctaText: "Az első egyeztetésen tisztázzuk, hogy a cég helyzetére HR-tanácsadás, HR-outsourcing vagy valami más a jó válasz. Díjmentes és kötelezettség nélküli.",
     ctaLabel: "Kérjen első egyeztetést",
@@ -355,7 +349,6 @@ export const POSTS: Post[] = [
     topic: "Szervezetfejlesztés",
     service: "/szervezetfejlesztes/",
     serviceLabel: "Szervezetfejlesztés",
-    interest: "szervezetfejlesztes",
     ctaTitle: "Nem látszik, hol akad a szervezet?",
     ctaText: "A szervezeti diagnózis 3–5 hét alatt pontos képet ad. Beszéljük át, mi indokolja a cégnél, és mire terjedjen ki.",
     ctaLabel: "Beszéljük át a helyzetet",
@@ -423,7 +416,6 @@ export const POSTS: Post[] = [
     topic: "Vezetőfejlesztés",
     service: "/vezetoi-trening/",
     serviceLabel: "Vezetői tréning",
-    interest: ["vezetoi-trening", "vezetoi-coaching"],
     ctaTitle: "Nem biztos, melyik kell a vezetőinek?",
     ctaText: "Az igényfelmérésen tisztázzuk, hogy tréning, coaching vagy a kettő kombinációja illik a cég vezetőihez. Az első egyeztetés díjmentes.",
     ctaLabel: "Kérjen első egyeztetést",
@@ -488,7 +480,6 @@ export const POSTS: Post[] = [
     topic: "Munkaerő-megtartás",
     service: "/munkaero-megtartas/",
     serviceLabel: "Munkaerő-megtartás és ösztönzés",
-    interest: "megtartas",
     ctaTitle: "Ösztönzési rendszert vezetne be?",
     ctaText: "Segítünk a cég céljaihoz kötött, egyszerű és a kollégák által érthető rendszert kialakítani és bevezetni. Beszéljük át a kiindulóhelyzetet.",
     ctaLabel: "Kérjen konzultációt",
@@ -566,7 +557,6 @@ export const POSTS: Post[] = [
     topic: "Toborzás és kiválasztás",
     service: "/szolgaltatasok/#toborzas",
     serviceLabel: "Toborzás és kiválasztás",
-    interest: "toborzas",
     ctaTitle: "Hónapok óta nyitva egy kulcspozíció?",
     ctaText: "Segítünk meghatározni, kit keres valójában a cég, és felépíteni a kiválasztást úgy, hogy az gyors és pontos legyen. Az első egyeztetés díjmentes.",
     ctaLabel: "Beszéljük át a helyzetet",

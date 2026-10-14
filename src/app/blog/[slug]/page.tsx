@@ -100,7 +100,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               <h2 id="post-cta-title">{post.ctaTitle}</h2>
               <p>{post.ctaText}</p>
               <div className={styles.ctaActions}>
-                <CtaLink service={post.interest} local>
+                <CtaLink local>
                   {post.ctaLabel}
                 </CtaLink>
                 <Link href={post.service} className="link-arrow">
@@ -119,7 +119,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               <p className={styles.sideText}>
                 Országosan, online és igény szerint helyszínen, 20–200 fős kkv-knak.
               </p>
-              <CtaLink service={post.interest} local variant="ghost" size="sm">
+              <CtaLink local variant="ghost" size="sm">
                 Beszéljük át a helyzetet
               </CtaLink>
             </div>
@@ -142,7 +142,6 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       <QuoteSection
         title={post.ctaTitle}
         text="Írja le röviden a cég helyzetét. Az első egyeztetés díjmentes, és nem jár kötelezettséggel."
-        defaultInterests={[post.interest].flat()}
       />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(articleLd) }} />

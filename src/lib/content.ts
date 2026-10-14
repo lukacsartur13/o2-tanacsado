@@ -125,48 +125,13 @@ export const SERVICE_BY_ID = Object.fromEntries(
   SERVICES.map((s) => [s.id, s]),
 ) as Record<ServiceId, Service>;
 
-/** Ügyfélhelyzetek – a jelenlegi oldal „partnere leszünk, amennyiben” listájából, az országos szolgáltatási oldalakra irányítva. */
-export const SITUATIONS: { title: string; text: string; service: ServiceId; href: string; linkLabel: string }[] = [
-  {
-    title: "Nehéz a toborzás",
-    text: "Nehezen találja meg vállalkozása számára a megfelelő kollégákat, a fontos pozíciók sokáig betöltetlenek maradnak.",
-    service: "toborzas",
-    href: "/szolgaltatasok/#toborzas",
-    linkLabel: "Toborzás és kiválasztás",
-  },
-  {
-    title: "Elvándorlás és megtartás",
-    text: "Problémát okoz a munkaerő közép- és hosszú távú megtartása, visszatérően munkaerő-elvándorlással küzdenek.",
-    service: "hr-strategia",
-    href: "/munkaero-megtartas/",
-    linkLabel: "Munkaerő-megtartás",
-  },
-  {
-    title: "Tisztázatlan munkakörök",
-    text: "A feladatok és felelősségek nem egyértelműek, a szervezeti felépítés nem követi a cég tényleges működését.",
-    service: "munkakorok",
-    href: "/munkakori-leiras-minta/",
-    linkLabel: "Munkakörök és munkaköri leírások",
-  },
-  {
-    title: "Belső működés és fejlesztés",
-    text: "Úgy látja, a belső folyamatok hatékonyságán javítani lehetne, ösztönző programot alakítana ki, de nem tudja, hogyan fogjon hozzá.",
-    service: "szervezetfejlesztes",
-    href: "/szervezetfejlesztes/",
-    linkLabel: "Szervezetfejlesztés",
-  },
-  {
-    title: "Növekedés képzett csapattal",
-    text: "Az üzleti növekedést megfelelően képzett és motivált kollégákkal, önállóan működő vezetőkkel szeretné támogatni.",
-    service: "szervezetfejlesztes",
-    href: "/vezetoi-trening/",
-    linkLabel: "Vezetői tréning és coaching",
-  },
-];
-
 export interface Founder {
   name: string;
+  /** Keresztnév, ahogy az oldalak szövege használja. */
+  firstName: string;
   role: string;
+  /** „Mikor jöttünk rá, hogy a cég nélkülünk is működik” – jóváhagyott, saját történet. */
+  story: string;
   facts: string[];
   image: StaticImageData;
   imageAlt: string;
@@ -176,46 +141,30 @@ export interface Founder {
 export const FOUNDERS: Founder[] = [
   {
     name: "Marczali Tibor",
+    firstName: "Tibor",
     role: "Cégalapító és gyakorló cégvezető",
     facts: [
       "MBA közgazdász, IT-mérnök",
       "Business és menedzsment coach",
       "Szervezetfejlesztő szakember",
     ],
+    story:
+      "2019 nyarán, a Covid előtt elmentem három hétre nyaralni. Egyszer sem hívott senki, és mire visszajöttem, minden rendben ment tovább. Akkor jöttem rá, hogy a cég nélkülem is megy, a kollégáim pedig szinte minden helyzetben jól döntenek önállóan.",
     image: marczali,
     imageAlt: "Marczali Tibor portréja",
   },
   {
     name: "Wortmann Ádám",
+    firstName: "Ádám",
     role: "Cégalapító és gyakorló cégvezető",
     facts: [
       "Közgazdász (MBA)",
       "Coach, szervezetfejlesztési szakember",
       "Mentálhigiénés szakember, pszichodráma-vezető",
     ],
+    story:
+      "2018-ban megnyertünk egy hatalmas projektet, és az egyik vezető kollégánkra bíztuk, hogy vigye végig. A heti vezetői üléseken rendre beszámolt az állásról, nekem pedig nem volt több kérdésem. Egy teljes negyedévnek kellett eltelnie, mire észrevettem, hogy mindent kézben tart, és mindenben önállóan tud dönteni.",
     image: wortmann,
     imageAlt: "Wortmann Ádám portréja",
   },
 ];
-
-/**
- * Érdeklődési területek az ajánlatkérő űrlapon – a kilenc szolgáltatási alap.
- * A négy klasszikus azonosító (hr-strategia, toborzas, munkakorok,
- * szervezetfejlesztes) változatlan, így a korábbi ?terulet= hivatkozások működnek.
- */
-export const INTEREST_OPTIONS: { value: string; label: string }[] = [
-  { value: "hr-strategia", label: "HR-stratégia és HR-tanácsadás" },
-  { value: "szervezetfejlesztes", label: "Szervezetfejlesztés, szervezeti diagnózis" },
-  { value: "toborzas", label: "Toborzás és kiválasztás" },
-  { value: "munkakorok", label: "Munkakörök, munkaköri leírások" },
-  { value: "megtartas", label: "Munkaerő-megtartás, ösztönzési rendszer" },
-  { value: "vezetoi-trening", label: "Vezetői tréning" },
-  { value: "vezetoi-coaching", label: "Vezetői coaching" },
-  { value: "team-coaching", label: "Team coaching" },
-  { value: "hr-outsourcing", label: "HR-outsourcing" },
-  { value: "segitseg", label: "Segítséget kérek a meghatározásában" },
-];
-
-export const INTEREST_LABELS = Object.fromEntries(
-  INTEREST_OPTIONS.map((o) => [o.value, o.label]),
-) as Record<string, string>;

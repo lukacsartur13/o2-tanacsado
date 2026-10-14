@@ -17,10 +17,10 @@ export function Footer() {
       <div className={`container ${styles.grid}`}>
         <div className={styles.brandCol}>
           <Logo className={styles.logo} />
-          <p className={styles.tagline}>
-            HR-tanácsadás, szervezetfejlesztés és vezetőfejlesztés 20–200 fős kis- és
-            középvállalkozásoknak. Országosan, online és helyszínen.
-          </p>
+          <address className={styles.tagline}>
+            {LEGAL_NAME}, {ADDRESS.full},{" "}
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+          </address>
         </div>
 
         <div>
@@ -31,9 +31,6 @@ export function Footer() {
                 <Link href={n.href}>{n.label}</Link>
               </li>
             ))}
-            <li>
-              <Link href="/szolgaltatasok/#toborzas">Toborzás és kiválasztás</Link>
-            </li>
           </ul>
         </div>
 
@@ -54,17 +51,6 @@ export function Footer() {
               </li>
             ))}
           </ul>
-        </div>
-
-        <div>
-          <h2 className={styles.heading}>Elérhetőség</h2>
-          <address className={styles.address}>
-            <strong>{LEGAL_NAME}</strong>
-            <br />
-            {ADDRESS.full}
-            <br />
-            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-          </address>
         </div>
       </div>
 

@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
 import { POSTS } from "@/lib/blog";
-import { LOCAL_PAGES, NAV, PRIVACY_PATH, SERVICE_PAGES, SITE_URL } from "@/lib/site";
+import { LOCAL_PAGES, NAV, PRIVACY_PATH, SELF_CHECK_PATH, SERVICE_PAGES, SITE_URL } from "@/lib/site";
 
 // Statikus export (GitHub Pages) esetén is előállítható fájl.
 export const dynamic = "force-static";
 
-const LAST_MODIFIED = new Date("2026-09-08");
+const LAST_MODIFIED = new Date("2026-10-14");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const main = NAV.map((n) => ({
@@ -20,6 +20,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: 0.9,
   }));
+  const selfCheck = {
+    url: new URL(SELF_CHECK_PATH, SITE_URL).toString(),
+    lastModified: LAST_MODIFIED,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  };
   const posts = POSTS.map((p) => ({
     url: new URL(`/blog/${p.slug}/`, SITE_URL).toString(),
     lastModified: new Date(p.date),
@@ -40,5 +46,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.2,
     },
   ];
-  return [...main, ...services, ...posts, ...local, ...legal];
+  return [...main, ...services, selfCheck, ...posts, ...local, ...legal];
 }

@@ -3,22 +3,26 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { CtaLink } from "./CtaLink";
-import { FORM_ANCHOR } from "@/lib/site";
+import { FORM_ANCHOR, SELF_CHECK_PATH } from "@/lib/site";
 import styles from "./MobileCta.module.css";
 
 /**
- * Mobilon rögzített "Ajánlatot kérek" sáv. Elrejtjük, amíg az ajánlatkérő
+ * Mobilon rögzített „Beszéljünk” sáv. Elrejtjük, amíg a kapcsolatfelvételi
  * űrlap látható, hogy ne takarja azt; a body alsó kitöltése a tartalmat védi.
+ * Az önellenőrző kérdéssor oldalain nem jelenik meg, ott a kérdéssor a fő lépés.
  * A pathname kulcsként szolgál, így oldalváltáskor az állapot alaphelyzetbe áll.
  */
 export function MobileCta() {
   const pathname = usePathname();
+  const hidden = pathname.startsWith(SELF_CHECK_PATH);
 
   useEffect(() => {
+    if (hidden) return;
     document.body.classList.add("has-mobile-cta");
     return () => document.body.classList.remove("has-mobile-cta");
-  }, []);
+  }, [hidden]);
 
+  if (hidden) return null;
   return <MobileCtaBar key={pathname} />;
 }
 

@@ -90,7 +90,7 @@ export default function BlogIndexPage() {
               A cikkek általános helyzetekről szólnak. A cég helyzete konkrét. Az első egyeztetés
               díjmentes, online vagy a cégnél, országosan.
             </p>
-            <CtaLink service="segitseg">Kérjen első egyeztetést</CtaLink>
+            <CtaLink>Kérjen első egyeztetést</CtaLink>
           </div>
           <ul className={styles.serviceList}>
             {SERVICE_PAGES.map((s) => (

@@ -30,8 +30,8 @@ export const IS_PRODUCTION =
   process.env.NEXT_PUBLIC_SITE_ENV === "production" ||
   process.env.VERCEL_ENV === "production";
 
-/** Elsődleges CTA felirat – konzultációs, nem „árajánlat” jellegű. */
-export const CTA_LABEL = "Kérjen első egyeztetést";
+/** Elsődleges CTA felirat – a személyes első beszélgetésre hív. */
+export const CTA_LABEL = "Beszéljünk";
 export const FORM_ANCHOR = "ajanlatkeres";
 
 /** Országos működés – minden szolgáltatási oldalon ugyanígy jelenik meg. */
@@ -46,16 +46,24 @@ export const NAV = [
   { href: "/kapcsolat/", label: "Kapcsolat" },
 ] as const;
 
-/** Országos szolgáltatási és témaoldalak (láblécben, sitemapben, hivatkozásokban). */
+/**
+ * Országos szolgáltatási és témaoldalak (láblécben, sitemapben, hivatkozásokban).
+ * Az első négy az új szövegű oldal; az útvonalak a régiek maradtak, a dokumentum
+ * által javasolt új címek (/havi-egyuttmukodes, /ceges-diagnozis) csak javaslatok.
+ */
 export const SERVICE_PAGES = [
-  { href: "/hr-tanacsadas-kkv-knak/", label: "HR-tanácsadás kkv-knak" },
-  { href: "/szervezetfejlesztes/", label: "Szervezetfejlesztés" },
-  { href: "/vezetoi-trening/", label: "Vezetői tréning" },
+  { href: "/hr-tanacsadas-kkv-knak/", label: "Havi együttműködés" },
+  { href: "/szervezetfejlesztes/", label: "Céges diagnózis" },
   { href: "/vezetoi-coaching/", label: "Vezetői coaching" },
   { href: "/team-coaching/", label: "Team coaching" },
+  { href: "/vezetoi-trening/", label: "Vezetői tréning" },
   { href: "/munkaero-megtartas/", label: "Munkaerő-megtartás" },
   { href: "/munkakori-leiras-minta/", label: "Munkaköri leírás minta" },
 ] as const;
+
+/** Önellenőrző kérdéssor (opt-in oldal). */
+export const SELF_CHECK_PATH = "/onellenorzo-kerdessor/";
+export const SELF_CHECK_ANCHOR = "kerdessor";
 
 export const LOCAL_PAGES = [
   { href: "/hr-tanacsadas-budapest/", label: "Budapest és Pest vármegye" },

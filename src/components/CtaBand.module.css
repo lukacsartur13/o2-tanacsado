@@ -1,0 +1,51 @@
+.band {
+  overflow: hidden;
+}
+
+.grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+
+.grid h2 {
+  max-width: 20ch;
+}
+
+.grid .lead:last-child {
+  margin-bottom: 0;
+}
+
+.actions {
+  display: grid;
+  gap: 20px;
+  justify-items: start;
+}
+
+.actions ul {
+  list-style: none;
+  display: grid;
+  gap: 2px;
+}
+
+.actions a:not(:global(.btn)) {
+  color: #fff;
+}
+
+.actions a:not(:global(.btn)):hover {
+  color: #7fd8d4;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: 7fr 5fr;
+    gap: 64px;
+  }
+
+  .actions {
+    justify-items: start;
+  }
+}

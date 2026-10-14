@@ -1,15 +1,16 @@
-import { ServicePage } from "@/components/ServicePage";
+import { OfferPage } from "@/components/OfferPage";
+import { plain } from "@/components/Rich";
+import { OFFER_BY_SLUG } from "@/lib/offers";
 import { pageMetadata } from "@/lib/seo";
-import { SERVICE_BY_SLUG } from "@/lib/services";
 
-const page = SERVICE_BY_SLUG["vezetoi-coaching"];
+const page = OFFER_BY_SLUG["vezetoi-coaching"];
 
 export const metadata = pageMetadata({
   title: page.title,
-  description: page.description,
+  description: plain(page.lead),
   path: page.path,
 });
 
 export default function Page() {
-  return <ServicePage page={page} />;
+  return <OfferPage page={page} />;
 }

@@ -1,68 +1,65 @@
 .head {
-  padding-block: clamp(48px, 6vw, 88px) clamp(40px, 5vw, 72px);
+  padding-block: clamp(48px, 6vw, 88px) clamp(56px, 7vw, 104px);
   background: radial-gradient(900px 500px at 100% 0%, var(--teal-tint) 0%, transparent 60%), var(--paper);
 }
 
 .grid {
   display: grid;
-  gap: 32px;
+  gap: 40px;
   grid-template-columns: 1fr;
   align-items: start;
 }
 
-.grid h1 {
+.intro h1 {
   max-width: 14ch;
 }
 
-.card {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: clamp(22px, 3vw, 32px);
-  background: #fff;
+.info {
+  display: grid;
+  gap: 22px;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line-strong);
 }
 
-.cardTitle {
+.info p {
+  margin: 0;
+  color: var(--ink-2);
+  max-width: 56ch;
+  text-wrap: pretty;
+}
+
+.infoTitle {
   font-family: var(--font-body);
   font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
-  margin: 0 0 10px;
+  color: var(--teal);
+  margin: 0 0 6px;
 }
 
 .address {
   font-style: normal;
-  line-height: 1.75;
-  margin-bottom: 26px;
   color: var(--ink-2);
 }
 
-.address a {
+.formWrap {
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+
+.formNote {
+  margin: 0 0 14px;
+  color: var(--ink-2);
   font-weight: 600;
 }
 
-.list {
-  list-style: none;
-  display: grid;
-  gap: 2px;
-}
-
-.list a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 40px;
-  color: var(--ink);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.list a:hover {
-  color: var(--teal);
-}
-
-@media (min-width: 900px) {
+@media (min-width: 1000px) {
   .grid {
-    grid-template-columns: 7fr 5fr;
+    grid-template-columns: 5fr 7fr;
     gap: 64px;
+  }
+
+  .formWrap {
+    margin-top: 8px;
   }
 }

@@ -1,14 +1,9 @@
 import { NextResponse } from "next/server";
-import { INTEREST_LABELS } from "@/lib/content";
 import { CONTACT_EMAIL } from "@/lib/site";
 import { validateQuote, type QuotePayload } from "@/lib/validation";
-import { sendMail, isMailConfigured } from "@/lib/mail";
+import { escapeHtml, sendMail, isMailConfigured } from "@/lib/mail";
 
 export const runtime = "nodejs";
-
-function escapeHtml(s: string) {
-  return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c] as string);
-}
 
 export async function POST(request: Request) {
   let body: Partial<QuotePayload>;
@@ -35,42 +30,39 @@ export async function POST(request: Request) {
   }
 
   const p = body as QuotePayload;
-  const interests = p.interests.map((i) => INTEREST_LABELS[i]).join(", ");
   const to = process.env.CONTACT_TO_EMAIL || CONTACT_EMAIL;
 
   const lines = [
     `Név: ${p.name.trim()}`,
-    `E-mail: ${p.email.trim()}`,
     `Cégnév: ${p.company.trim()}`,
-    `Érdeklődési terület: ${interests}`,
+    `E-mail: ${p.email.trim()}`,
     `Telefonszám: ${p.phone?.trim() || "–"}`,
     "",
     "Üzenet:",
     p.message?.trim() || "–",
     "",
     `Beküldve: ${new Date().toISOString()}`,
-    "Forrás: o2tanacsado.hu ajánlatkérő űrlap",
+    "Forrás: o2tanacsado.hu kapcsolatfelvételi űrlap",
   ];
 
   const html = `<div style="font-family:system-ui,sans-serif;font-size:15px;line-height:1.6;color:#0b1a3a">
-    <h2 style="margin:0 0 12px">Új ajánlatkérés a weboldalról</h2>
+    <h2 style="margin:0 0 12px">Új megkeresés a weboldalról</h2>
     <table style="border-collapse:collapse">
       <tr><td style="padding:4px 12px 4px 0;color:#5a6683">Név</td><td>${escapeHtml(p.name.trim())}</td></tr>
-      <tr><td style="padding:4px 12px 4px 0;color:#5a6683">E-mail</td><td><a href="mailto:${escapeHtml(p.email.trim())}">${escapeHtml(p.email.trim())}</a></td></tr>
       <tr><td style="padding:4px 12px 4px 0;color:#5a6683">Cégnév</td><td>${escapeHtml(p.company.trim())}</td></tr>
-      <tr><td style="padding:4px 12px 4px 0;color:#5a6683">Terület</td><td>${escapeHtml(interests)}</td></tr>
+      <tr><td style="padding:4px 12px 4px 0;color:#5a6683">E-mail</td><td><a href="mailto:${escapeHtml(p.email.trim())}">${escapeHtml(p.email.trim())}</a></td></tr>
       <tr><td style="padding:4px 12px 4px 0;color:#5a6683">Telefon</td><td>${escapeHtml(p.phone?.trim() || "–")}</td></tr>
     </table>
-    <p style="margin:16px 0 4px;color:#5a6683">Üzenet</p>
+    <p style="margin:16px 0 4px;color:#5a6683">Mi viszi el most a legtöbb energiát a cégnél?</p>
     <p style="white-space:pre-wrap;margin:0">${escapeHtml(p.message?.trim() || "–")}</p>
-    <p style="margin-top:20px;color:#7c869f;font-size:13px">Beküldve: ${new Date().toISOString()} · o2tanacsado.hu ajánlatkérő űrlap</p>
+    <p style="margin-top:20px;color:#7c869f;font-size:13px">Beküldve: ${new Date().toISOString()} · o2tanacsado.hu kapcsolatfelvételi űrlap</p>
   </div>`;
 
   try {
     await sendMail({
       to,
       replyTo: p.email.trim(),
-      subject: `Ajánlatkérés: ${p.company.trim()} – ${interests}`,
+      subject: `Első beszélgetés: ${p.company.trim()}`,
       text: lines.join("\n"),
       html,
     });

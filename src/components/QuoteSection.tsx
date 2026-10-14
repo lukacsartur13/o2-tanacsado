@@ -1,12 +1,10 @@
-import { Suspense } from "react";
-import { QuoteForm, QuoteFormStatic } from "./QuoteForm";
+import { QuoteForm } from "./QuoteForm";
 import { ADDRESS, CONTACT_EMAIL, FORM_ANCHOR, LEGAL_NAME } from "@/lib/site";
 import styles from "./QuoteSection.module.css";
 
 interface Props {
   title?: string;
   text?: string;
-  defaultInterests?: string[];
   /** Ha true, a szekció világos hátteret használ (Kapcsolat oldal). */
   light?: boolean;
 }
@@ -14,7 +12,6 @@ interface Props {
 export function QuoteSection({
   title = "Kérjen első egyeztetést",
   text = "Írja le röviden, milyen helyzetben van a cég. Az első egyeztetés díjmentes, és nem jár kötelezettséggel.",
-  defaultInterests,
   light,
 }: Props) {
   return (
@@ -43,10 +40,6 @@ export function QuoteSection({
               Bármelyik szolgáltatási területre vagy azok kombinációjára kérhet egyeztetést; országosan,
               online és igény szerint helyszínen dolgozunk.
             </li>
-            <li>
-              Ha nem biztos benne, melyik terület érintett, jelölje a „Segítséget kérek a
-              meghatározásában” lehetőséget.
-            </li>
             <li>Az első egyeztetés díjmentes, és nem jelent elköteleződést.</li>
           </ul>
           <address className={styles.address}>
@@ -58,9 +51,7 @@ export function QuoteSection({
           </address>
         </div>
         <div>
-          <Suspense fallback={<QuoteFormStatic defaultInterests={defaultInterests} />}>
-            <QuoteForm defaultInterests={defaultInterests} />
-          </Suspense>
+          <QuoteForm />
         </div>
       </div>
     </section>

@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 
 export const metadata = pageMetadata({
   title: "Kapcsolat: beszéljünk személyesen | O2 Tanácsadó",
-  description: `Mondd el röviden, mi viszi el most a legtöbb energiádat a cégnél. Ha inkább e-mailt írnál, az ${CONTACT_EMAIL} címen is elérsz minket. Mindenkinek válaszolunk.`,
+  description: `Mondd el röviden, mi viszi el most a legtöbb energiádat a cégnél. Ha inkább e-mailt írnál, az ${CONTACT_EMAIL} címen is elérsz minket.`,
   path: "/kapcsolat/",
 });
 

@@ -12,7 +12,7 @@ const SUBTITLE =
   "Tizenkét állítás, rövid, személyes értékelés. Cégvezetőknek, akik szeretnék, hogy a cég az ő napi jelenlétük nélkül is eredményesen működjön.";
 
 export const metadata = pageMetadata({
-  title: `${TITLE} | O2 Tanácsadó`,
+  title: "Önellenőrző kérdéssor cégvezetőknek | O2 Tanácsadó",
   description: SUBTITLE,
   path: SELF_CHECK_PATH,
 });

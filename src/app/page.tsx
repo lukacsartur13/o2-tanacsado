@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CtaBand } from "@/components/CtaBand";
 import { CtaLink } from "@/components/CtaLink";
 import { ArrowRight, Check } from "@/components/Icons";
-import { Rich, plain } from "@/components/Rich";
+import { Rich } from "@/components/Rich";
 import { FOUNDERS } from "@/lib/content";
 import { pageMetadata } from "@/lib/seo";
 import { SELF_CHECK_PATH } from "@/lib/site";
@@ -14,8 +14,9 @@ const HERO_LEAD =
   "Cégtulajdonos vezetőkkel dolgozunk 20–200 fős vállalkozásokban. Gyakorló cégvezetők vagyunk: **a saját cégünkben 25 éve kipróbált gyakorlattal** és tanult szakmai tudással segítünk abban, hogy a céged egyre kevésbé függjön a napi jelenlétedtől, te pedig azzal foglalkozhass, amit a leghasznosabbnak és legértékesebbnek tartasz.";
 
 export const metadata = pageMetadata({
-  title: "Működjön a cég a napi jelenléted nélkül is | O2 Tanácsadó",
-  description: plain(HERO_LEAD),
+  title: "HR-tanácsadás és szervezetfejlesztés cégvezetőknek | O2 Tanácsadó",
+  description:
+    "Cégtulajdonos vezetőkkel dolgozunk 20–200 fős vállalkozásokban. Amit javaslunk, azt a saját cégünkben 25 éve így csináljuk.",
   path: "/",
 });
 
@@ -64,17 +65,20 @@ const CHANGES = [
 const OFFERS = [
   {
     question: "Szeretnéd kívülről látni, mi történik a cégedben?",
-    text: "**Céges diagnózis.** Interjúk a vezetőkkel és a kulcsemberekkel, beszélgetések veled, majd írásos összefoglaló, amit személyesen mutatunk be: erősségek, nehézségek, ki nem mondott, visszatérő problémák és javaslatok.",
+    name: "Céges diagnózis.",
+    text: "Interjúk a vezetőkkel és a kulcsemberekkel, beszélgetések veled, majd írásos összefoglaló, amit személyesen mutatunk be: erősségek, nehézségek, ki nem mondott, visszatérő problémák és javaslatok.",
     href: "/szervezetfejlesztes/",
   },
   {
     question: "Szeretnéd, hogy rendszeresen ott legyünk melletted?",
-    text: "**Havi együttműködés.** Havonta a cégnél vagyunk: vezetői és HR-tanácsadás, egyéni és team coachingok, a folyamatok és a belső kommunikáció fejlesztése, a nem adminisztratív HR-feladatok átvétele.",
+    name: "Havi együttműködés.",
+    text: "Havonta a cégnél vagyunk: vezetői és HR-tanácsadás, egyéni és team coachingok, a folyamatok és a belső kommunikáció fejlesztése, a nem adminisztratív HR-feladatok átvétele.",
     href: "/hr-tanacsadas-kkv-knak/",
   },
   {
     question: "Adatokkal látnád, honnan jönnek a tünetek?",
-    text: "**360 fokos értékelés.** Online kitölthető teszt, amiben a felettes, a beosztottak és a mellérendelt kollégák mondanak véleményt az érintett vezetőről, kollégáról.",
+    name: "360 fokos értékelés.",
+    text: "Online kitölthető teszt, amiben a felettes, a beosztottak és a mellérendelt kollégák mondanak véleményt az érintett vezetőről, kollégáról.",
     href: "/szolgaltatasok/#ertekeles-360",
   },
 ];
@@ -87,7 +91,10 @@ export default function HomePage() {
         <span className="o2-ring" style={{ width: 760, height: 760, left: -300, top: -260 }} aria-hidden="true" />
         <div className={`container ${styles.heroGrid}`}>
           <div className={styles.heroText}>
-            <h1 id="hero-title">Működjön a cég a napi jelenléted nélkül is</h1>
+            <h1 id="hero-title">
+              <span className="eyebrow">HR-tanácsadás és szervezetfejlesztés cégtulajdonosoknak</span>{" "}
+              Működjön a cég a napi jelenléted nélkül is
+            </h1>
             <p className="lead">
               <Rich text={HERO_LEAD} />
             </p>
@@ -273,7 +280,11 @@ export default function HomePage() {
               <li key={o.href} className={`${styles.svcCard} reveal`}>
                 <h3>{o.question}</h3>
                 <p>
-                  <Rich text={o.text} />
+                  {/* A félkövér szolgáltatásnév egyben link: kulcsszavas linkszöveg, változatlan kinézet. */}
+                  <Link href={o.href} className={styles.svcName}>
+                    <strong>{o.name}</strong>
+                  </Link>{" "}
+                  {o.text}
                 </p>
                 <Link href={o.href} className={`btn btn--ghost btn--sm ${styles.svcBtn}`}>
                   Ez érdekel <ArrowRight />

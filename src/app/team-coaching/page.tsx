@@ -1,5 +1,4 @@
 import { OfferPage } from "@/components/OfferPage";
-import { plain } from "@/components/Rich";
 import { OFFER_BY_SLUG } from "@/lib/offers";
 import { pageMetadata } from "@/lib/seo";
 
@@ -7,7 +6,7 @@ const page = OFFER_BY_SLUG["team-coaching"];
 
 export const metadata = pageMetadata({
   title: page.title,
-  description: plain(page.lead),
+  description: page.description,
   path: page.path,
 });
 

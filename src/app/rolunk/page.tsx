@@ -11,7 +11,7 @@ const LEAD =
   "Gyakorló cégvezetők vagyunk, és cégtulajdonos vezetőknek segítünk abban, hogy a cég a napi jelenlétük nélkül is működjön.";
 
 export const metadata = pageMetadata({
-  title: "Rólunk: 25 éve a saját cégünkben csináljuk, amit javasolunk | O2 Tanácsadó",
+  title: "Rólunk – Marczali Tibor és Wortmann Ádám | O2 Tanácsadó",
   description: LEAD,
   path: "/rolunk/",
 });

@@ -514,6 +514,15 @@
   color: var(--teal-ink);
 }
 
+.svcName {
+  color: inherit;
+  text-decoration: none;
+}
+
+.svcName:hover {
+  text-decoration: underline;
+}
+
 .svcBtn {
   justify-self: start;
   margin-top: 6px;

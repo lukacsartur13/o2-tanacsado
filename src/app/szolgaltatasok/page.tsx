@@ -15,7 +15,7 @@ const LEAD =
   "Két lépésben dolgozunk. A diagnózis megmutatja, hol tart a cég, aztán havi rendszerességgel, személyesen segítünk, ahogy a helyzet éppen kívánja.";
 
 export const metadata = pageMetadata({
-  title: "Szolgáltatások: céges diagnózis és havi együttműködés | O2 Tanácsadó",
+  title: "Szolgáltatások: HR-tanácsadás és céges diagnózis | O2 Tanácsadó",
   description: LEAD,
   path: "/szolgaltatasok/",
 });

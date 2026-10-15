@@ -195,8 +195,9 @@ export function OfferPage({ page }: { page: OfferPageData }) {
         <span className="o2-ring" style={{ width: 640, height: 640, right: -260, top: -300 }} aria-hidden="true" />
         <div className={`container ${styles.headGrid}`}>
           <div>
-            <p className="eyebrow">{page.eyebrow}</p>
-            <h1 id="service-h1">{page.h1}</h1>
+            <h1 id="service-h1">
+              <span className="eyebrow">{page.eyebrow}</span> {page.h1}
+            </h1>
             <p className="lead">
               <Rich text={page.lead} />
             </p>

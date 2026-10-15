@@ -230,6 +230,17 @@ strong {
   flex: none;
 }
 
+/* Címke a H1-en belül: kinézetre eyebrow, de a főcím része (a kulcsszó így a H1-be kerül). */
+h1 > .eyebrow {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  line-height: 1.4;
+  hyphens: manual;
+  -webkit-hyphens: manual;
+  text-wrap: wrap;
+}
+
 .section--ink .eyebrow {
   color: #7fd8d4;
 }

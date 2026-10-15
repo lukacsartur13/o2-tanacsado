@@ -18,9 +18,12 @@ export interface OfferPageData {
   path: string;
   /** Rövid név hivatkozásokhoz, morzsamenühöz, schema.org-hoz. */
   label: string;
-  /** SEO title (teljes, márkanévvel). A meta description a bevezető (lead). */
+  /** SEO title (teljes, márkanévvel): keresett kifejezéssel, csak a keresőben és a böngészőfülön látszik. */
   title: string;
+  /** Meta description: az oldal változatlan mondataiból, legfeljebb ~160 karakter. */
+  description: string;
   serviceType: string;
+  /** Kis címke a főcím fölött; a H1 része, ezért itt van a keresett kifejezés. */
   eyebrow: string;
   h1: string;
   lead: string;
@@ -47,9 +50,11 @@ export const OFFER_PAGES: OfferPageData[] = [
     slug: "havi-egyuttmukodes",
     path: "/hr-tanacsadas-kkv-knak/",
     label: "Havi együttműködés",
-    title: "Havi együttműködés: vezetői és HR-tanácsadás | O2 Tanácsadó",
+    title: "HR-tanácsadás kkv-knak havi együttműködésben | O2 Tanácsadó",
+    description:
+      "Havonta rendszeresen, személyesen ott vagyunk a cégnél. Nem építünk kicsiben nagyvállalati HR-rendszert.",
     serviceType: "Vezetői és HR-tanácsadás",
-    eyebrow: "Havi együttműködés · országosan",
+    eyebrow: "HR-tanácsadás · országosan",
     h1: "Havi együttműködés: hogyan léphetsz hátrébb az operatív munkától úgy, hogy a cég megy tovább?",
     lead:
       "Havonta rendszeresen, személyesen ott vagyunk a cégnél. Átvesszük tőled a nem adminisztratív jellegű HR-feladatokat, és tanácsadással, szervezetfejlesztéssel, vezetői és team coachinggal segítünk abban, hogy a cég nélküled is önállóan működjön.",
@@ -136,9 +141,11 @@ export const OFFER_PAGES: OfferPageData[] = [
     slug: "ceges-diagnozis",
     path: "/szervezetfejlesztes/",
     label: "Céges diagnózis",
-    title: "Céges diagnózis: mit lát egy külsős, amit te belülről nem? | O2 Tanácsadó",
+    title: "Szervezetfejlesztés és céges diagnózis | O2 Tanácsadó",
+    description:
+      "Cégtulajdonosként ritkán kapsz nyílt, kívülről érkező képet arról, hogyan működik a céged.",
     serviceType: "Céges diagnózis, szervezetfejlesztés",
-    eyebrow: "Céges diagnózis · országosan",
+    eyebrow: "Szervezetfejlesztés · országosan",
     h1: "Céges diagnózis: mit lát egy külsős, amit te belülről nem?",
     lead:
       "Cégtulajdonosként ritkán kapsz nyílt, kívülről érkező képet arról, hogyan működik a céged. A diagnózis ezt adja: interjúk és beszélgetések lefolytatása vezetőkkel és kulcsdolgozókkal, majd ebből egy írásos összefoglaló, amit személyesen mutatunk be.",
@@ -224,7 +231,9 @@ export const OFFER_PAGES: OfferPageData[] = [
     slug: "vezetoi-coaching",
     path: "/vezetoi-coaching/",
     label: "Vezetői coaching",
-    title: "Vezetői coaching, tanácsadás | O2 Tanácsadó",
+    title: "Vezetői coaching és tanácsadás cégvezetőknek | O2 Tanácsadó",
+    description:
+      "Négyszemközti, bizalmas beszélgetések egy gyakorló cégvezetővel. Ezeken az üléseken négyszemközt vagyunk: Tibor vagy Ádám egyedül ül le veled.",
     serviceType: "Vezetői coaching",
     eyebrow: "Vezetői coaching · a havi együttműködés része",
     h1: "Vezetői coaching, tanácsadás: végre megbeszélheted valakivel, amit a cégben senkivel nem tudsz",
@@ -282,7 +291,9 @@ export const OFFER_PAGES: OfferPageData[] = [
     slug: "team-coaching",
     path: "/team-coaching/",
     label: "Team coaching",
-    title: "Team coaching | O2 Tanácsadó",
+    title: "Team coaching vezetői csapatoknak | O2 Tanácsadó",
+    description:
+      "Nem csapatépítő nap, hanem egy- vagy többalkalmas, célhoz kötött munka, amiben a csapat a saját valós ügyein dolgozik.",
     serviceType: "Team coaching",
     eyebrow: "Team coaching · a havi együttműködés része",
     h1: "Team coaching: a vezetői csapat tagjai külön-külön jók, együtt mégsem elég hatékonyak",
